@@ -2,7 +2,7 @@
 <h1 align="center">GUTANGLE ༼ つ ◕_◕ ༽つ🍰🍔🍕/𖠣🦴</h1>
 
 <p align="center">
-  <img src="icon.png" alt="GutAngle Logo" width="240" style="border-radius: 80%; object-fit: cover;">
+  <img src="img/icon.png" alt="GutAngle Logo" width="240" style="border-radius: 80%; object-fit: cover;">
 </p>
 
 
