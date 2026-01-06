@@ -3,132 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUTANGLE - Smart Health Monitoring</title>
-    <link rel="stylesheet" href="style.css">
+    <title>GUTANGLE - Neurophysiology Monitoring Platform</title>
+    <link rel="stylesheet" href="subcode/style.css">
+    <link rel="stylesheet" href="subcode/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="landing-active">
 
+    <!-- Landing Page -->
     <div id="view-landing">
-        
-        <div class="main-content">
-            <video autoplay muted loop id="video-background" class="video-background">
-                <source src="vdo/bg.mp4" type="video/mp4">
-                <div style="background: #0a0a0a; width:100%; height:100%;"></div>
-            </video>
+        <video autoplay muted loop id="video-background" class="video-background">
+            <source src="vdo/bg.mp4" type="video/mp4">
+            <div style="background: #0a0a0a; width:100%; height:100%;"></div>
+        </video>
 
-            <div class="content-overlay">
-                
-                <header class="navbar">
-                    <div class="logo">
-                        <img id="project-icon" src="img/icon.png" alt="GUTANGLE Icon" onerror="this.style.display='none'">
-                        <span class="project-name">GUTANGLE Smart Belt</span>
-                    </div>
-                    <div class="nav-actions">
-                        <button id="get-started-btn" class="btn btn-primary">Get Started</button>
-                    </div>
-                </header>
+        <div class="content-overlay">
+            <header class="navbar">
+                <div class="logo">
+                    <img id="project-icon" src="img/icon.png" alt="GUTANGLE Icon" onerror="this.style.display='none'">
+                    <span class="project-name">GUTANGLE NeuroMonitor</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#docs">Documentation</a>
+                    <a href="#support">Support</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </header>
 
-                <main class="hero-section">
-                    <section class="intro-section">
-                        <h1 id="main-heading">Your Spine, Your Gut, Now Connected.</h1>
-                        <p id="tagline">The Integrated Smart Belt: Real-time monitoring for posture and digestive health.</p>
-                        
-                        <div class="nav-actions">
-                            <button id="get-started-hero-btn" class="btn btn-primary">Get Started</button>
+            <main class="hero-section">
+                <div class="hero-content">
+                    <div class="logo-hero">
+                        <div class="logo-circle">
+                            <img src="img/icon.png" alt="GUTANGLE Logo">
                         </div>
+                    </div>
+                    <h1 id="main-heading">Intelligent EEG/Lumbar Monitoring & Visualization Dashboard</h1>
+                    <p id="tagline">Clinical-grade neurophysiology platform for real-time monitoring and data analysis</p>
                     
-                        <div class="language-section">
-                            <label for="language-select"><i class="fas fa-language"></i> Select Language:</label>
-                            <select id="language-select">
-                                <option value="en">English</option>
-                                <option value="ta">தமிழ் (Tamil)</option>
-                                <option value="ml">മലയാളം (Malayalam)</option>
-                                <option value="ur">اردو (Urdu)</option>
-                                <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                                <option value="te">తెలుగు (Telugu)</option>
-                                <option value="mr">मराठी (Marathi)</option>
-                                <option value="or">ଓଡ଼ିଆ (Odia)</option>
-                                <option value="hi">हिंदी (Hindi)</option>
-                            </select>
+                    <div class="hero-actions">
+                        <button id="enter-dashboard" class="btn btn-primary">
+                            <i class="fas fa-tachometer-alt"></i> Enter Dashboard
+                        </button>
+                        <button id="view-demo" class="btn btn-secondary">
+                            <i class="fas fa-play-circle"></i> View Demo
+                        </button>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                            <option value="ml">മലയാളം (Malayalam)</option>
+                            <option value="ur">اردو (Urdu)</option>
+                            <option value="hi">हिंदी (Hindi)</option>
+                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="mr">मराठी (Marathi)</option>
+                            <option value="or">ଓଡ଼ିଆ (Odia)</option>
+                        </select>
+                    </div>
+                </div>
+            </main>
+            
+            <section id="features" class="features-section">
+                <div class="container">
+                    <h2>Core Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+                            <h3>Real-time Monitoring</h3>
+                            <p>Live EEG and lumbar position visualization with clinical-grade precision</p>
                         </div>
-                    </section>
-                </main>
-                
-                <section id="detailed-description" class="detailed-section">
-                    <div class="container">
-                        <div class="watershed-container">
-                            <h2 id="project-title">GUTANGLE: The Integrated Health Companion</h2>
-                            
-                            <div class="description-header">
-                                <h3 id="desc-heading">Project Overview</h3>
-                                <button id="read-aloud-btn" class="btn read-aloud-btn">
-                                    <i class="fas fa-volume-up"></i> Read Aloud
-                                </button>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
                             </div>
-                            
-                            <div id="description-content" class="description-content">
-                                </div>
-                            
-                            <button id="toggle-desc-btn" class="toggle-btn">Read More <i class="fas fa-chevron-down"></i></button>
-                            
-                            <div class="video-container">
-                                <h3 id="video-title">Project Demonstration</h3>
-                                <video id="demo-video" controls poster="img/bg.png">
-                                    <source src="vdo/explain.mp4" type="video/mp4">
-                                </video>
+                            <h3>History Analytics</h3>
+                            <p>Comprehensive session history with export to CSV/PDF formats</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-universal-access"></i>
                             </div>
+                            <h3>Accessibility First</h3>
+                            <p>Designed for older adults with high-contrast and voice control</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Secure Integration</h3>
+                            <p>HIPAA-compliant data handling with API-ready architecture</p>
                         </div>
                     </div>
-                </section>
-                
-                <footer class="footer-section">
-                    <div class="container">
-                        <div class="footer-grid">
-                            <div>
-                                <h3>GUTANGLE Project</h3>
-                                <p>A novel wearable solution for integrated spinal and digestive health monitoring.</p>
-                            </div>
-                            <div> 
-                                <h3>Quick Links</h3>
-                                <ul>
-                                    <li><a href="#detailed-description">Project Details</a></li>
-                                    <li><a href="#technology">Technology</a></li>
-                                    <li><a href="#team">Team</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3>Contact</h3>
-                                <p><i class="fas fa-envelope"></i> <a href="mailto:manojvenu23@gmail.com">manojvenu23@gmail.com</a></p>
-                            </div>
-                            <div>
-                                <h3>Connect</h3>
-                                <div class="social-links">
-                                    <a href="#"><i class="fas fa-user"></i></a>
-                                    <a href="#"><i class="fab fa-github"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                                </div>
-                            </div>
+                </div>
+            </section>
+            
+            <footer class="footer-section">
+                <div class="container">
+                    <div class="footer-grid">
+                        <div>
+                            <h3>GUTANGLE Platform</h3>
+                            <p>Neurophysiology monitoring system for clinical research and patient care</p>
                         </div>
                         <div>
-                            <p>Developed By Manoj</p>
-                            <p>Special Thanks To Ms. Maria Celestina, (AP, Biomedical Engineering Department, Kings Engineering College)</p>
+                            <h3>Quick Links</h3>
+                            <ul>
+                                <li><a href="#features">Features</a></li>
+                                <li><a href="#docs">Documentation</a></li>
+                                <li><a href="#support">Support</a></li>
+                            </ul>
                         </div>
-                        <br>
-                            <div class="copyright">
-                            <p>© 2025 GUTANGLE - Integrated Smart Belt Project.</p>
+                        <div>
+                            <h3>Contact</h3>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:manojvenu23@gmail.com">manojvenu23@gmail.com</a></p>
                         </div>
                     </div>
-                </footer>
-
-            </div>
+                    <div class="copyright">
+                        <p>© 2025 GUTANGLE Neurophysiology Platform</p>
+                        <p>Developed By Manoj | Biomedical Engineering</p>
+                        <p>Special Thanks To Ms. Maria Celestina, (AP, Biomedical Engineering Department, Kings Engineering College)</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
+    <!-- Login/Signup Page -->
     <div id="view-login" style="display: none;">
-    
         <button id="back-to-landing-btn" class="back-btn">
-            <i class="fas fa-arrow-left"></i> <span data-i18n="backBtn">Back</span>
+            <i class="fas fa-arrow-left"></i> <span data-i18n="backBtn">Back to Home</span>
         </button>
 
         <canvas id="lightRaysCanvas" class="light-rays-container"></canvas>
@@ -142,33 +152,33 @@
                     <div>
                         <div class="hero-badge">
                             <span class="hero-dot"></span>
-                            <span data-i18n="heroBadge">CONTINUOUS EGG & Lumbar MONITORING</span>
+                            <span data-i18n="heroBadge">CONTINUOUS EEG & LUMBAR MONITORING</span>
                         </div>
                     </div>
                 </div>
 
                 <h1 class="hero-title">
                     GUTANGLE
-                    <span data-i18n="heroTitleSub">REAL‑TIME EGG & Lumbar</span>
+                    <span data-i18n="heroTitleSub">REAL‑TIME EEG & LUMBAR</span>
                 </h1>
                 
                 <p class="hero-copy" data-i18n="heroCopy">
-                    Simultaneously capture electrogastrography (EGG) signals and lumbar posture metrics. 
-                    Visualize gastric slow waves alongside spinal alignment in real time, tracking the link between digestive motility and back health.
+                    Simultaneously capture EEG signals and lumbar posture metrics. 
+                    Visualize brain activity alongside spinal alignment in real time, tracking the link between neurological and musculoskeletal health.
                 </p>
 
                 <div class="hero-metrics">
                     <div class="metric-pill">
                         <span class="dot"></span>
-                        <strong data-i18n="metric1">0.05–0.15 Hz gastric rhythm</strong>
+                        <strong data-i18n="metric1">8-30 Hz EEG frequency bands</strong>
                     </div>
                     <div class="metric-pill">
                         <span class="dot"></span>
-                        <strong data-i18n="metric2">Multi‑channel abdominal leads</strong>
+                        <strong data-i18n="metric2">Multi‑channel EEG leads</strong>
                     </div>
                     <div class="metric-pill">
                         <span class="dot"></span>
-                        <strong data-i18n="metric3">Hypo/Hyper‑ motility flags</strong>
+                        <strong data-i18n="metric3">Lumbar angle tracking</strong>
                     </div>
                 </div>
 
@@ -187,7 +197,7 @@
 
                 <h2 class="auth-title" id="authTitle" data-i18n="authTitleSignUp">Create GUTANGLE workspace</h2>
                 <p class="auth-caption" id="authCaption">
-                    <span data-i18n="authCaptionSignUp">Start by creating an account for your GI lab or research team.</span>
+                    <span data-i18n="authCaptionSignUp">Start by creating an account for your neurophysiology lab or clinical team.</span>
                     <span style="display:block; font-weight:bold; color:#fff;" data-i18n="authFree">Sign up is free.</span>
                 </p>
 
@@ -195,32 +205,32 @@
                     <div class="field-group">
                         <label class="field-label" data-i18n="labelName">Full name</label>
                         <div class="field-control">
-                            <input class="field-input" type="text" name="name" data-i18n-placeholder="placeName" placeholder="Ms. Sweety" required />
+                            <input class="field-input" type="text" name="name" id="signup-name" data-i18n-placeholder="placeName" placeholder="Dr. John Smith" required />
                         </div>
                     </div>
                     <div class="field-group">
                         <label class="field-label" data-i18n="labelMobile">Mobile number</label>
                         <div class="field-control">
-                            <input class="field-input" type="tel" name="mobile" data-i18n-placeholder="placeMobile" placeholder="+91 8940423363" required />
+                            <input class="field-input" type="tel" name="mobile" id="signup-mobile" data-i18n-placeholder="placeMobile" placeholder="+91 9876543210" required />
                         </div>
                     </div>
                     <div class="field-group">
                         <label class="field-label" data-i18n="labelEmail">Email ID</label>
                         <div class="field-control">
-                            <input class="field-input" type="email" name="email" data-i18n-placeholder="placeEmail" placeholder="biomedical@gmail.com" required />
+                            <input class="field-input" type="email" name="email" id="signup-email" data-i18n-placeholder="placeEmail" placeholder="clinical.research@gmail.com" required />
                         </div>
                     </div>
                     <div class="field-inline">
                         <div class="field-group">
                             <label class="field-label" data-i18n="labelAge">Age</label>
                             <div class="field-control">
-                                <input class="field-input" type="number" name="age" min="10" max="120" placeholder="20" required />
+                                <input class="field-input" type="number" name="age" id="signup-age" min="10" max="120" placeholder="35" required />
                             </div>
                         </div>
                         <div class="field-group">
                             <label class="field-label" data-i18n="labelPass">Password</label>
                             <div class="field-control">
-                                <input class="field-input" type="password" name="password" data-i18n-placeholder="placePass" placeholder="Password" required />
+                                <input class="field-input" type="password" name="password" id="signup-password" data-i18n-placeholder="placePass" placeholder="Password" required />
                             </div>
                         </div>
                     </div>
@@ -245,33 +255,41 @@
                 </form>
 
                 <form id="signinForm" class="auth-form" data-active="false" autocomplete="off">
-                    <div class="field-group">
-                        <label class="field-label" data-i18n="labelEmail">Email ID</label>
-                        <div class="field-control">
-                            <input class="field-input" type="email" name="email" data-i18n-placeholder="placeEmail" placeholder="biomedical@gmail.com" required />
-                        </div>
-                    </div>
+    <div class="field-group">
+        <label class="field-label" data-i18n="labelEmail">Email ID</label>
+        <div class="field-control">
+            <input class="field-input" type="email" name="email" id="login-email" data-i18n-placeholder="placeEmail" placeholder="clinical.research@gmail.com" required />
+        </div>
+    </div>
 
-                    <div class="field-group">
-                        <label class="field-label" data-i18n="labelPass">Password</label>
-                        <div class="field-control">
-                            <input class="field-input" type="password" name="password" data-i18n-placeholder="placePassEnter" placeholder="Enter your password" required />
-                        </div>
-                    </div>
-                    <div class="field-group">
-                        <label class="field-label" data-i18n="labelSecurity">Security check</label>
-                        <div class="captcha-box">
-                            <span class="captcha-text" id="captchaTextSignin"></span>
-                            <button type="button" class="captcha-refresh" id="captchaRefreshSignin" data-i18n="btnRefresh">Refresh</button>
-                        </div>
-                        <div class="captcha-input">
-                            <input class="field-input" type="text" id="captchaInputSignin" data-i18n-placeholder="placeCaptcha" placeholder="Type the code above" required />
-                        </div>
-                    </div>
-                    <p id="signinErrorSignin" class="error-msg" style="display:none;" data-i18n="errorCaptcha">Captcha does not match.</p>
+    <div class="field-group">
+        <label class="field-label" data-i18n="labelPass">Password</label>
+        <div class="field-control">
+            <input class="field-input" type="password" name="password" id="login-password" data-i18n-placeholder="placePassEnter" placeholder="Enter your password" required />
+        </div>
+        <div class="forgot-password-container">
+            <button type="button" class="forgot-password-link" id="forgot-password-link" data-i18n="linkForgotPassword">Forgot Password?</button>
+        </div>
+    </div>
+    <div class="field-group">
+        <label class="field-label" data-i18n="labelSecurity">Security check</label>
+        <div class="captcha-box">
+            <span class="captcha-text" id="captchaTextSignin"></span>
+            <button type="button" class="captcha-refresh" id="captchaRefreshSignin" data-i18n="btnRefresh">Refresh</button>
+        </div>
+        <div class="captcha-input">
+            <input class="field-input" type="text" id="captchaInputSignin" data-i18n-placeholder="placeCaptcha" placeholder="Type the code above" required />
+        </div>
+    </div>
+    <p id="signinErrorSignin" class="error-msg" style="display:none;" data-i18n="errorCaptcha">Captcha does not match.</p>
 
-                    <button type="submit" class="primary-btn" data-i18n="btnSigninDashboard">Sign in to GUTANGLE dashboard</button>
-                </form>
+    <button type="submit" class="primary-btn" data-i18n="btnSigninDashboard">Sign in to GUTANGLE dashboard</button>
+    
+    <!-- Bypass Login Button -->
+    <button type="button" class="bypass-btn" id="bypass-login">
+        <i class="fas fa-unlock-alt"></i> <span data-i18n="btnBypassLogin">Bypass Login (Demo Access)</span>
+    </button>
+    </form>
 
                 <div class="divider">
                     <div class="divider-line"></div>
@@ -281,17 +299,934 @@
                 
                 <div class="social-row">
                     <button type="button" class="social-btn" id="googleLogin">
-                         <span class="fab fa-google"></span>
+                        <span class="fab fa-google"></span>
                         <span>Google</span>
                     </button>
-                    <a href="https://github.com/ManoMedEngg" target="_blank" class="social-btn" id="githubLogin" style="text-decoration: none;">
-                        <span class="fab fa-github"></span> <span>GitHub</span>
-                    </a>
+                    <button type="button" class="social-btn" id="githubLogin">
+                        <span class="fab fa-github"></span> 
+                        <span>GitHub</span>
+                    </button>
                 </div>
             </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Main Dashboard -->
+    <div id="view-dashboard" style="display: none;">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-profile">
+                        <div class="avatar">
+                            <img src="img/icon.png" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <h4 id="user-name">Loading...</h4>
+                            <span class="user-role" id="user-role">Clinician</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="nav-item active" data-page="dashboard">
+                            <a href="#">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="live-monitoring">
+                            <a href="#">
+                                <i class="fas fa-wave-square"></i>
+                                <span>Live EEG/Lumbar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="history">
+                            <a href="#">
+                                <i class="fas fa-history"></i>
+                                <span>History</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="patients">
+                            <a href="#">
+                                <i class="fas fa-user-injured"></i>
+                                <span>Patient Management</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="settings">
+                            <a href="#">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" data-page="help">
+                            <a href="#">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Help</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="sidebar-footer">
+                    <div class="voice-control">
+                        <button id="voice-toggle" class="voice-btn">
+                            <i class="fas fa-microphone"></i>
+                            <span>Voice Control</span>
+                        </button>
+                    </div>
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Top Bar -->
+                <header class="top-bar">
+                    <div class="top-left">
+                        <div class="patient-info">
+                            <h3>Current Patient: <span id="current-patient">John Doe</span></h3>
+                            <div class="patient-meta">
+                                <span class="patient-id">ID: <span id="current-patient-id">P-001234</span></span>
+                                <span class="patient-age">Age: <span id="current-patient-age">45</span></span>
+                            </div>
+                        </div>
+                        <div class="session-status">
+                            <span class="status-badge active" id="session-status">
+                                <i class="fas fa-circle"></i> <span id="session-status-text">Active Session</span>
+                            </span>
+                            <span class="session-time">
+                                <i class="fas fa-clock"></i> Duration: <span id="session-duration">00:00:00</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="top-center">
+                        <div class="datetime-display">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="current-date">Loading...</span>
+                            <i class="fas fa-clock"></i>
+                            <span id="current-time">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="top-right">
+                        <button class="notification-btn" id="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count" id="notification-count">0</span>
+                        </button>
+                        <div class="user-menu">
+                            <button class="user-menu-btn" id="user-menu-btn">
+                                <img src="img/icon.png" alt="User" id="user-avatar">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="user-menu-dropdown" id="user-menu-dropdown">
+                                <a href="#" id="profile-link"><i class="fas fa-user"></i> Profile</a>
+                                <a href="#" id="settings-link"><i class="fas fa-cog"></i> Settings</a>
+                                <div class="divider"></div>
+                                <a href="#" id="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                
+                <!-- Dashboard Content -->
+                <div class="dashboard-content" id="dashboard-content">
+                    <!-- Page: Dashboard -->
+                    <div class="page active" id="page-dashboard">
+                        <!-- Live Monitoring Cards -->
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card live-monitoring-card">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-brain"></i> Live EEG Monitoring</h3>
+                                        <div class="card-actions">
+                                            <button class="btn-icon" id="pause-eeg">
+                                                <i class="fas fa-pause"></i>
+                                            </button>
+                                            <button class="btn-icon" id="zoom-in-eeg">
+                                                <i class="fas fa-search-plus"></i>
+                                            </button>
+                                            <button class="btn-icon" id="zoom-out-eeg">
+                                                <i class="fas fa-search-minus"></i>
+                                            </button>
+                                            <select class="time-window" id="eeg-time-window">
+                                                <option value="10">10s</option>
+                                                <option value="30" selected>30s</option>
+                                                <option value="60">60s</option>
+                                                <option value="300">5min</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container">
+                                            <canvas id="eeg-chart"></canvas>
+                                        </div>
+                                        <div class="signal-metrics">
+                                            <div class="metric">
+                                                <span class="metric-label">Signal Quality</span>
+                                                <span class="metric-value good" id="eeg-quality">95%</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">Dominant Band</span>
+                                                <span class="metric-value" id="eeg-dominant-band">Alpha (8-12 Hz)</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">Amplitude</span>
+                                                <span class="metric-value" id="eeg-amplitude">45 μV</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">Noise Level</span>
+                                                <span class="metric-value" id="eeg-noise">2.1%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="card lumbar-monitoring-card">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-spine"></i> Lumbar Position</h3>
+                                        <div class="card-actions">
+                                            <span class="angle-display">
+                                                <i class="fas fa-angle-right"></i>
+                                                <span id="current-angle">15°</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="spine-visualization">
+                                            <div class="spine-model">
+                                                <div class="spine-base"></div>
+                                                <div class="spine-mid"></div>
+                                                <div class="spine-top" id="spine-angle"></div>
+                                            </div>
+                                            <div class="angle-chart">
+                                                <canvas id="lumbar-chart"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="lumbar-metrics">
+                                            <div class="metric">
+                                                <span class="metric-label">Current Angle</span>
+                                                <span class="metric-value safe" id="lumbar-angle">15°</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">Max Angle</span>
+                                                <span class="metric-value" id="lumbar-max">28°</span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">Movement Freq</span>
+                                                <span class="metric-value" id="lumbar-freq">0.2 Hz</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- KPI Cards -->
+                        <div class="row kpi-row">
+                            <div class="col-sm-4 col-lg">
+                                <div class="kpi-card">
+                                    <div class="kpi-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="kpi-content">
+                                        <h4>Session Duration</h4>
+                                        <div class="kpi-value" id="kpi-duration">02:45:21</div>
+                                        <div class="kpi-trend up">
+                                            <i class="fas fa-arrow-up"></i> <span id="kpi-duration-trend">12%</span> vs last
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-4 col-lg">
+                                <div class="kpi-card">
+                                    <div class="kpi-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="kpi-content">
+                                        <h4>Alerts Triggered</h4>
+                                        <div class="kpi-value" id="kpi-alerts">3</div>
+                                        <div class="kpi-breakdown">
+                                            <span class="critical" id="kpi-critical">2 Critical</span>
+                                            <span class="warning" id="kpi-warning">1 Warning</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-4 col-lg">
+                                <div class="kpi-card">
+                                    <div class="kpi-icon">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <div class="kpi-content">
+                                        <h4>Artefacts Detected</h4>
+                                        <div class="kpi-value" id="kpi-artefacts">12</div>
+                                        <div class="kpi-subtext"><span id="kpi-artefact-pct">8%</span> of total signal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-lg">
+                                <div class="kpi-card">
+                                    <div class="kpi-icon">
+                                        <i class="fas fa-history"></i>
+                                    </div>
+                                    <div class="kpi-content">
+                                        <h4>Last Event</h4>
+                                        <div class="kpi-value" id="kpi-last-event">Muscle artefact</div>
+                                        <div class="kpi-subtext"><span id="kpi-last-event-time">2 minutes</span> ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 col-lg">
+                                <div class="kpi-card">
+                                    <div class="kpi-icon">
+                                        <i class="fas fa-plug"></i>
+                                    </div>
+                                    <div class="kpi-content">
+                                        <h4>Data Source</h4>
+                                        <div class="kpi-status">
+                                            <span class="status-good" id="kpi-eeg-status">EEG: Stable</span>
+                                            <span class="status-good" id="kpi-lumbar-status">Lumbar: Stable</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Alerts Panel -->
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card alerts-panel">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-bell"></i> Active Alerts & Events</h3>
+                                        <div class="alert-filters">
+                                            <button class="filter-btn active" data-filter="all">All</button>
+                                            <button class="filter-btn" data-filter="critical">Critical</button>
+                                            <button class="filter-btn" data-filter="warning">Warning</button>
+                                            <button class="filter-btn" data-filter="info">Info</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="alerts-list" id="alerts-list">
+                                            <!-- Alerts will be populated here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="card quick-actions">
+                                    <div class="card-header">
+                                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <button class="action-btn primary" id="start-session">
+                                            <i class="fas fa-play"></i>
+                                            <span>Start New Session</span>
+                                        </button>
+                                        <button class="action-btn" id="pause-session">
+                                            <i class="fas fa-pause"></i>
+                                            <span>Pause Monitoring</span>
+                                        </button>
+                                        <button class="action-btn" id="stop-session">
+                                            <i class="fas fa-stop"></i>
+                                            <span>Stop Session</span>
+                                        </button>
+                                        <button class="action-btn" id="export-data">
+                                            <i class="fas fa-file-export"></i>
+                                            <span>Export Data</span>
+                                        </button>
+                                        <button class="action-btn" id="add-patient">
+                                            <i class="fas fa-user-plus"></i>
+                                            <span>Add Patient</span>
+                                        </button>
+                                        <button class="action-btn" id="go-settings">
+                                            <i class="fas fa-cog"></i>
+                                            <span>Settings</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page: History -->
+                    <div class="page" id="page-history">
+                        <div class="page-header">
+                            <h2><i class="fas fa-history"></i> Session History</h2>
+                            <div class="page-actions">
+                                <div class="search-box">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="history-search" placeholder="Search sessions...">
+                                </div>
+                                <button class="btn btn-primary" id="refresh-history">
+                                    <i class="fas fa-sync-alt"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="history-container">
+                            <div class="history-sidebar">
+                                <div class="filters-panel">
+                                    <h4>Filters</h4>
+                                    <div class="filter-group">
+                                        <label>Date Range</label>
+                                        <input type="date" id="date-from" class="date-input">
+                                        <input type="date" id="date-to" class="date-input">
+                                    </div>
+                                    <div class="filter-group">
+                                        <label>Session Type</label>
+                                        <select id="session-type-filter">
+                                            <option value="all">All Types</option>
+                                            <option value="eeg">EEG Only</option>
+                                            <option value="lumbar">Lumbar Only</option>
+                                            <option value="both">Both</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label>Patient</label>
+                                        <select id="patient-filter">
+                                            <option value="all">All Patients</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-secondary" id="apply-filters">Apply Filters</button>
+                                </div>
+                            </div>
+                            
+                            <div class="history-main">
+                                <div class="sessions-table-container">
+                                    <table class="sessions-table" id="sessions-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Patient</th>
+                                                <th>Type</th>
+                                                <th>Duration</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="sessions-table-body">
+                                            <!-- Sessions will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="session-details" id="session-details">
+                                    <div class="details-header">
+                                        <h3>Session Details</h3>
+                                        <span class="no-session-selected">Select a session to view details</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page: Settings -->
+                    <div class="page" id="page-settings">
+                        <div class="page-header">
+                            <h2><i class="fas fa-cog"></i> Settings</h2>
+                        </div>
+                        
+                        <div class="settings-container">
+                            <div class="settings-sidebar">
+                                <ul class="settings-nav">
+                                    <li class="active" data-tab="appearance">Appearance</li>
+                                    <li data-tab="language">Language & Region</li>
+                                    <li data-tab="alerts">Data & Alerts</li>
+                                    <li data-tab="accessibility">Accessibility</li>
+                                    <li data-tab="integration">Integration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="settings-content">
+                                <!-- Appearance Tab -->
+                                <div class="settings-tab active" id="tab-appearance">
+                                    <h3>Appearance Settings</h3>
+                                    <div class="setting-group">
+                                        <label>Theme</label>
+                                        <div class="theme-selector">
+                                            <div class="theme-option active" data-theme="dark">
+                                                <div class="theme-preview dark"></div>
+                                                <span>Dark</span>
+                                            </div>
+                                            <div class="theme-option" data-theme="light">
+                                                <div class="theme-preview light"></div>
+                                                <span>Light</span>
+                                            </div>
+                                            <div class="theme-option" data-theme="auto">
+                                                <div class="theme-preview auto"></div>
+                                                <span>Auto</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Accent Color</label>
+                                        <div class="color-selector">
+                                            <div class="color-option active" data-color="red">
+                                                <div class="color-circle" style="background: #DC2626;"></div>
+                                                <span>Red</span>
+                                            </div>
+                                            <div class="color-option" data-color="teal">
+                                                <div class="color-circle" style="background: #00D4FF;"></div>
+                                                <span>Teal</span>
+                                            </div>
+                                            <div class="color-option" data-color="purple">
+                                                <div class="color-circle" style="background: #8B5CF6;"></div>
+                                                <span>Purple</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Chart Colors</label>
+                                        <select id="chart-colors">
+                                            <option value="default">Default</option>
+                                            <option value="accessible">High Contrast</option>
+                                            <option value="clinical">Clinical</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Interface Density</label>
+                                        <select id="interface-density">
+                                            <option value="comfortable">Comfortable</option>
+                                            <option value="compact">Compact</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- Language Tab -->
+                                <div class="settings-tab" id="tab-language">
+                                    <h3>Language & Region Settings</h3>
+                                    <div class="setting-group">
+                                        <label>Primary Language</label>
+                                        <select id="primary-language">
+                                            <option value="en">English</option>
+                                            <option value="ta">தமிழ் (Tamil)</option>
+                                            <option value="ml">മലയാളം (Malayalam)</option>
+                                            <option value="ur">اردو (Urdu)</option>
+                                            <option value="hi">हिंदी (Hindi)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Date Format</label>
+                                        <select id="date-format">
+                                            <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                                            <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                                            <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Time Format</label>
+                                        <select id="time-format">
+                                            <option value="12h">12-hour</option>
+                                            <option value="24h">24-hour</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Measurement Units</label>
+                                        <select id="measurement-units">
+                                            <option value="metric">Metric</option>
+                                            <option value="imperial">Imperial</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <!-- Alerts Tab -->
+                                <div class="settings-tab" id="tab-alerts">
+                                    <h3>Data & Alert Settings</h3>
+                                    
+                                    <div class="setting-section">
+                                        <h4>EEG Thresholds</h4>
+                                        <div class="setting-group">
+                                            <label>Amplitude Warning Threshold</label>
+                                            <div class="slider-container">
+                                                <input type="range" id="eeg-amplitude-threshold" min="0" max="200" value="50">
+                                                <span id="eeg-amplitude-value">50 μV</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="setting-group">
+                                            <label>Frequency Band Alerts</label>
+                                            <div class="checkbox-group">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="delta-alert" checked>
+                                                    <span>Delta (0.5-4 Hz)</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="theta-alert" checked>
+                                                    <span>Theta (4-8 Hz)</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="alpha-alert" checked>
+                                                    <span>Alpha (8-12 Hz)</span>
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" id="beta-alert" checked>
+                                                    <span>Beta (12-30 Hz)</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-section">
+                                        <h4>Lumbar Thresholds</h4>
+                                        <div class="setting-group">
+                                            <label>Warning Angle</label>
+                                            <div class="slider-container">
+                                                <input type="range" id="lumbar-warning-threshold" min="0" max="45" value="20">
+                                                <span id="lumbar-warning-value">20°</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="setting-group">
+                                            <label>Critical Angle</label>
+                                            <div class="slider-container">
+                                                <input type="range" id="lumbar-critical-threshold" min="0" max="45" value="30">
+                                                <span id="lumbar-critical-value">30°</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-section">
+                                        <h4>Alert Methods</h4>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="inapp-alerts" checked>
+                                                <span>In-app notifications</span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="sms-alerts" checked>
+                                                <span>SMS alerts</span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="whatsapp-alerts" checked>
+                                                <span>WhatsApp alerts</span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="email-alerts" checked>
+                                                <span>Email alerts</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="setting-group">
+                                            <label>Alert Cooldown Period</label>
+                                            <select id="alert-cooldown">
+                                                <option value="1">1 minute</option>
+                                                <option value="5" selected>5 minutes</option>
+                                                <option value="15">15 minutes</option>
+                                                <option value="30">30 minutes</option>
+                                                <option value="60">60 minutes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Accessibility Tab -->
+                                <div class="settings-tab" id="tab-accessibility">
+                                    <h3>Accessibility Settings</h3>
+                                    
+                                    <div class="setting-group">
+                                        <label>Font Size</label>
+                                        <div class="font-size-selector">
+                                            <button class="font-size-btn" data-size="small">Small</button>
+                                            <button class="font-size-btn active" data-size="medium">Medium</button>
+                                            <button class="font-size-btn" data-size="large">Large</button>
+                                            <button class="font-size-btn" data-size="xlarge">X-Large</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="checkbox-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="high-contrast-mode">
+                                            <span>High Contrast Mode</span>
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="reduced-motion">
+                                            <span>Reduced Motion</span>
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="voice-control-toggle">
+                                            <span>Enable Voice Control</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Voice Control Commands</label>
+                                        <div class="voice-commands-list">
+                                            <div class="voice-command">
+                                                <span class="command">"Open dashboard"</span>
+                                                <span class="description">Switch to dashboard view</span>
+                                            </div>
+                                            <div class="voice-command">
+                                                <span class="command">"Start monitoring"</span>
+                                                <span class="description">Start a new session</span>
+                                            </div>
+                                            <div class="voice-command">
+                                                <span class="command">"Show alerts"</span>
+                                                <span class="description">Open alerts panel</span>
+                                            </div>
+                                            <div class="voice-command">
+                                                <span class="command">"Increase font size"</span>
+                                                <span class="description">Make text larger</span>
+                                            </div>
+                                            <div class="voice-command">
+                                                <span class="command">"Toggle high contrast"</span>
+                                                <span class="description">Switch contrast mode</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Keyboard Shortcuts</label>
+                                        <button class="btn btn-secondary" id="show-shortcuts">
+                                            <i class="fas fa-keyboard"></i> View Keyboard Shortcuts
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Integration Tab -->
+                                <div class="settings-tab" id="tab-integration">
+                                    <h3>Integration Settings</h3>
+                                    
+                                    <div class="setting-group">
+                                        <label>API Key</label>
+                                        <div class="api-key-container">
+                                            <input type="password" id="api-key" value="sb_secret_77d5r9YbsCzIONF1yW5WVQ_29d1WT8-" readonly>
+                                            <button class="btn-icon" id="copy-api-key">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                            <button class="btn-icon" id="show-api-key">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <small>Use this key for device integration and API calls</small>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Webhook URL</label>
+                                        <input type="text" id="webhook-url" placeholder="https://your-server.com/webhook">
+                                        <small>For sending alert data to external systems</small>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Data Export Schedule</label>
+                                        <select id="export-schedule">
+                                            <option value="never">Never</option>
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="setting-group">
+                                        <label>Third-party Integrations</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="fitbit-integration">
+                                                <span>Fitbit Integration</span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="apple-health-integration">
+                                                <span>Apple Health Integration</span>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" id="ehr-integration">
+                                                <span>EHR System Integration</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page: Patients -->
+                    <div class="page" id="page-patients">
+                        <div class="page-header">
+                            <h2><i class="fas fa-user-injured"></i> Patient Management</h2>
+                            <button class="btn btn-primary" id="add-new-patient">
+                                <i class="fas fa-plus"></i> Add New Patient
+                            </button>
+                        </div>
+                        
+                        <div class="patients-container">
+                            <div class="patients-list" id="patients-list">
+                                <!-- Patients will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Page: Help -->
+                    <div class="page" id="page-help">
+                        <div class="page-header">
+                            <h2><i class="fas fa-question-circle"></i> Help & Documentation</h2>
+                        </div>
+                        
+                        <div class="help-container">
+                            <div class="help-sidebar">
+                                <ul class="help-nav">
+                                    <li class="active" data-help="getting-started">Getting Started</li>
+                                    <li data-help="eeg-guide">EEG Monitoring Guide</li>
+                                    <li data-help="lumbar-guide">Lumbar Monitoring Guide</li>
+                                    <li data-help="alerts-guide">Alerts System</li>
+                                    <li data-help="troubleshooting">Troubleshooting</li>
+                                    <li data-help="api-docs">API Documentation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="help-content">
+                                <!-- Help content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Notifications Panel -->
+            <div class="notifications-panel" id="notifications-panel">
+                <div class="notifications-header">
+                    <h3>Notifications</h3>
+                    <button class="close-notifications" id="close-notifications">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="notifications-list" id="notifications-list">
+                    <!-- Notifications will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Control Overlay -->
+    <div class="voice-control-overlay" id="voice-control-overlay">
+        <div class="voice-control-modal">
+            <div class="voice-header">
+                <h3><i class="fas fa-microphone"></i> Voice Control</h3>
+                <button class="close-voice" id="close-voice">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="voice-status">
+                <div class="voice-visualizer" id="voice-visualizer">
+                    <!-- Voice visualization bars -->
+                </div>
+                <p class="voice-prompt" id="voice-prompt">Say a command...</p>
+                <p class="voice-transcript" id="voice-transcript"></p>
+            </div>
+            <div class="voice-commands">
+                <h4>Available Commands:</h4>
+                <ul>
+                    <li>"Open dashboard"</li>
+                    <li>"Start monitoring"</li>
+                    <li>"Pause session"</li>
+                    <li>"Show alerts"</li>
+                    <li>"Increase font size"</li>
+                    <li>"Toggle high contrast"</li>
+                    <li>"Show history"</li>
+                    <li>"Open settings"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert SMS/WhatsApp Modal -->
+    <div class="alert-modal-overlay" id="alert-modal-overlay">
+        <div class="alert-modal">
+            <div class="alert-modal-header">
+                <h3><i class="fas fa-bell"></i> Alert Notification Sent</h3>
+                <button class="close-alert-modal" id="close-alert-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="alert-modal-body">
+                <div class="alert-method">
+                    <i class="fas fa-sms"></i>
+                    <div>
+                        <h4>SMS Sent</h4>
+                        <p id="sms-status">Message delivered to registered mobile</p>
+                    </div>
+                </div>
+                <div class="alert-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp Sent</h4>
+                        <p id="whatsapp-status">Message delivered via WhatsApp</p>
+                    </div>
+                </div>
+                <div class="alert-details">
+                    <h4>Alert Details:</h4>
+                    <p id="alert-details-text"></p>
+                </div>
+            </div>
+            <div class="alert-modal-footer">
+                <button class="btn btn-secondary" id="dismiss-alert">Dismiss</button>
+                <button class="btn btn-primary" id="view-alert">View Alert</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+<div class="forgot-password-modal-overlay" id="forgot-password-modal" style="display: none;">
+    <div class="forgot-password-modal">
+        <div class="forgot-password-modal-header">
+            <h3><i class="fas fa-key"></i> Reset Password</h3>
+            <button class="close-forgot-password-modal" id="close-forgot-password-modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="forgot-password-modal-body">
+            <p class="forgot-password-info" data-i18n="forgotPasswordInfo">Enter your email address and we'll send you a password reset link.</p>
+            
+            <div class="field-group">
+                <label class="field-label" data-i18n="labelEmail">Email ID</label>
+                <div class="field-control">
+                    <input class="field-input" type="email" id="forgot-password-email" data-i18n-placeholder="placeEmail" placeholder="clinical.research@gmail.com" required />
+                </div>
+            </div>
+            
+            <div class="field-group">
+                <label class="field-label" data-i18n="labelSecurity">Security check</label>
+                <div class="captcha-box">
+                    <span class="captcha-text" id="captchaTextForgotPassword"></span>
+                    <button type="button" class="captcha-refresh" id="captchaRefreshForgotPassword" data-i18n="btnRefresh">Refresh</button>
+                </div>
+                <div class="captcha-input">
+                    <input class="field-input" type="text" id="captchaInputForgotPassword" data-i18n-placeholder="placeCaptcha" placeholder="Type the code above" required />
+                </div>
+            </div>
+            
+            <div class="forgot-password-message" id="forgot-password-message" style="display: none;"></div>
+        </div>
+        <div class="forgot-password-modal-footer">
+            <button class="btn btn-secondary" id="cancel-forgot-password">
+                <span data-i18n="btnCancel">Cancel</span>
+            </button>
+            <button class="btn btn-primary" id="send-reset-link">
+                <i class="fas fa-paper-plane"></i> <span data-i18n="btnSendResetLink">Send Reset Link</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="subcode/script.js"></script>
+    <script src="subcode/dashboard.js"></script>
+    <script src="subcode/database.js"></script>
 </body>
 </html>
