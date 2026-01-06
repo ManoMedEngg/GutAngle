@@ -1,0 +1,789 @@
+// Supabase Database Integration
+const SUPABASE_URL = 'https://your-project.supabase.co'; // Replace with your Supabase URL
+const SUPABASE_KEY = 'sb_secret_77d5r9YbsCzIONF1yW5WVQ_29d1WT8-'; // Your provided key
+
+// Initialize Supabase client
+const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+
+class GutAngleDatabase {
+    constructor() {
+        this.supabase = supabase;
+        this.currentUser = null;
+        this.currentSession = null;
+    }
+
+    // ============================================
+    // 1. USER MANAGEMENT
+    // ============================================
+
+    async registerUser(userData) {
+        if (!this.supabase) {
+            // Fallback to localStorage for demo
+            return this.registerUserLocal(userData);
+        }
+
+        try {
+            // Hash password (in production, use proper hashing)
+            const hashedPassword = btoa(userData.password); // Simple base64 encoding for demo
+            
+            const { data, error } = await this.supabase
+                .from('users')
+                .insert([
+                    {
+                        user_id: `USER-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+                        full_name: userData.name,
+                        email: userData.email,
+                        mobile: userData.mobile,
+                        age: userData.age,
+                        password_hash: hashedPassword,
+                        role: 'patient',
+                        preferences: {
+                            language: 'en',
+                            theme: 'dark',
+                            alert_methods: ['sms', 'whatsapp', 'email'],
+                            accessibility: {}
+                        },
+                        devices_linked: [],
+                        created_at: new Date().toISOString(),
+                        last_login: new Date().toISOString()
+                    }
+                ])
+                .select();
+
+            if (error) throw error;
+
+            // Store in localStorage for session management
+            localStorage.setItem('currentUser', JSON.stringify(data[0]));
+            localStorage.setItem('userEmail', userData.email);
+            localStorage.setItem('isAuthenticated', 'true');
+
+            this.currentUser = data[0];
+            return data[0];
+
+        } catch (error) {
+            console.error('Registration error:', error);
+            // Fallback to localStorage
+            return this.registerUserLocal(userData);
+        }
+    }
+
+    async loginUser(email, password) {
+        if (!this.supabase) {
+            // Fallback to localStorage for demo
+            return this.loginUserLocal(email, password);
+        }
+
+        try {
+            // In production, you would verify the password hash
+            const { data, error } = await this.supabase
+                .from('users')
+                .select('*')
+                .eq('email', email)
+                .single();
+
+            if (error) throw error;
+
+            // Simple password check (in production, verify hash)
+            if (data && atob(data.password_hash) === password) {
+                // Update last login
+                await this.supabase
+                    .from('users')
+                    .update({ last_login: new Date().toISOString() })
+                    .eq('email', email);
+
+                // Store in localStorage
+                localStorage.setItem('currentUser', JSON.stringify(data));
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('isAuthenticated', 'true');
+
+                this.currentUser = data;
+                return data;
+            } else {
+                throw new Error('Invalid credentials');
+            }
+
+        } catch (error) {
+            console.error('Login error:', error);
+            // Fallback to localStorage
+            return this.loginUserLocal(email, password);
+        }
+    }
+
+    async getCurrentUser() {
+        if (!this.currentUser) {
+            const storedUser = localStorage.getItem('currentUser');
+            if (storedUser) {
+                this.currentUser = JSON.parse(storedUser);
+            }
+        }
+        return this.currentUser;
+    }
+
+    // ============================================
+    // 2. SESSION MANAGEMENT
+    // ============================================
+
+    async createSession(sessionData) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.createSessionLocal(sessionData);
+        }
+
+        try {
+            const sessionId = `SESS-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+            
+            const session = {
+                session_id: sessionId,
+                patient_id: this.currentUser?.user_id || 'DEMO-USER',
+                clinician_id: sessionData.clinician_id || 'CLIN-001',
+                start_time: new Date().toISOString(),
+                end_time: null,
+                data_type: sessionData.data_type || ['EEG', 'Lumbar'],
+                eeg_data: {
+                    channels: 8,
+                    sampling_rate: 256,
+                    data_file: null,
+                    metadata: {}
+                },
+                lumbar_data: {
+                    sampling_rate: 10,
+                    data_file: null
+                },
+                alerts_generated: [],
+                notes: sessionData.notes || '',
+                tags: sessionData.tags || []
+            };
+
+            const { data, error } = await this.supabase
+                .from('sessions')
+                .insert([session])
+                .select();
+
+            if (error) throw error;
+
+            this.currentSession = data[0];
+            
+            // Store in localStorage
+            localStorage.setItem('currentSession', JSON.stringify(data[0]));
+            localStorage.setItem('currentSessionId', sessionId);
+
+            return data[0];
+
+        } catch (error) {
+            console.error('Create session error:', error);
+            return this.createSessionLocal(sessionData);
+        }
+    }
+
+    async updateSession(sessionId, updates) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.updateSessionLocal(sessionId, updates);
+        }
+
+        try {
+            const { data, error } = await this.supabase
+                .from('sessions')
+                .update({
+                    ...updates,
+                    end_time: updates.end_time || new Date().toISOString()
+                })
+                .eq('session_id', sessionId)
+                .select();
+
+            if (error) throw error;
+
+            if (data && data[0]) {
+                this.currentSession = data[0];
+                localStorage.setItem('currentSession', JSON.stringify(data[0]));
+            }
+
+            return data ? data[0] : null;
+
+        } catch (error) {
+            console.error('Update session error:', error);
+            return this.updateSessionLocal(sessionId, updates);
+        }
+    }
+
+    async getSessions(filters = {}) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.getSessionsLocal(filters);
+        }
+
+        try {
+            let query = this.supabase.from('sessions').select('*');
+
+            if (filters.patient_id) {
+                query = query.eq('patient_id', filters.patient_id);
+            }
+
+            if (filters.start_date && filters.end_date) {
+                query = query.gte('start_time', filters.start_date)
+                           .lte('start_time', filters.end_date);
+            }
+
+            if (filters.data_type) {
+                query = query.contains('data_type', [filters.data_type]);
+            }
+
+            query = query.order('start_time', { ascending: false });
+
+            const { data, error } = await query;
+
+            if (error) throw error;
+            return data || [];
+
+        } catch (error) {
+            console.error('Get sessions error:', error);
+            return this.getSessionsLocal(filters);
+        }
+    }
+
+    // ============================================
+    // 3. ALERT MANAGEMENT
+    // ============================================
+
+    async createAlert(alertData) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.createAlertLocal(alertData);
+        }
+
+        try {
+            const alert = {
+                ...alertData,
+                alert_id: `ALERT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+                timestamp: new Date().toISOString(),
+                acknowledged: false,
+                notification_sent: {
+                    sms: false,
+                    whatsapp: false,
+                    email: false
+                }
+            };
+
+            const { data, error } = await this.supabase
+                .from('alerts')
+                .insert([alert])
+                .select();
+
+            if (error) throw error;
+
+            // Send notifications
+            await this.sendAlertNotifications(alert);
+
+            return data ? data[0] : alert;
+
+        } catch (error) {
+            console.error('Create alert error:', error);
+            return this.createAlertLocal(alertData);
+        }
+    }
+
+    async sendAlertNotifications(alert) {
+        // Get user preferences
+        const user = await this.getCurrentUser();
+        
+        if (!user) return;
+
+        // SMS Notification
+        if (user.preferences?.alert_methods?.includes('sms') && user.mobile) {
+            await this.sendSMS(user.mobile, alert);
+        }
+
+        // WhatsApp Notification
+        if (user.preferences?.alert_methods?.includes('whatsapp') && user.mobile) {
+            await this.sendWhatsApp(user.mobile, alert);
+        }
+
+        // Email Notification
+        if (user.preferences?.alert_methods?.includes('email') && user.email) {
+            await this.sendEmail(user.email, alert);
+        }
+    }
+
+    async sendSMS(mobile, alert) {
+        // Simulate SMS sending
+        const message = `GUTANGLE Alert: ${alert.type}\nSeverity: ${alert.severity}\nTime: ${new Date(alert.timestamp).toLocaleTimeString()}\nDetails: ${alert.details}`;
+        
+        console.log('SMS to', mobile, ':', message);
+        
+        // In production, integrate with Twilio API or similar
+        try {
+            // Example with fetch API
+            await fetch('https://api.twilio.com/2010-04-01/Accounts/.../Messages.json', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Basic ' + btoa('account_sid:auth_token'),
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    From: '+1234567890',
+                    To: mobile,
+                    Body: message
+                })
+            });
+        } catch (error) {
+            console.error('SMS sending failed:', error);
+        }
+    }
+
+    async sendWhatsApp(mobile, alert) {
+        // Simulate WhatsApp sending
+        const message = `🚨 *GUTANGLE ALERT*\n\n*Type:* ${alert.type}\n*Severity:* ${alert.severity}\n*Time:* ${new Date(alert.timestamp).toLocaleString()}\n*Details:* ${alert.details}\n\n⚠️ Please check the dashboard immediately.`;
+        
+        console.log('WhatsApp to', mobile, ':', message);
+        
+        // In production, integrate with WhatsApp Business API
+    }
+
+    async sendEmail(email, alert) {
+        // Simulate email sending
+        console.log('Email to', email, ':', alert);
+        
+        // In production, integrate with SendGrid or similar
+    }
+
+    async getSessionAlerts(sessionId) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.getSessionAlertsLocal(sessionId);
+        }
+
+        try {
+            const { data, error } = await this.supabase
+                .from('alerts')
+                .select('*')
+                .eq('session_id', sessionId)
+                .order('timestamp', { ascending: false });
+
+            if (error) throw error;
+            return data || [];
+
+        } catch (error) {
+            console.error('Get alerts error:', error);
+            return this.getSessionAlertsLocal(sessionId);
+        }
+    }
+
+    // ============================================
+    // 4. PATIENT MANAGEMENT
+    // ============================================
+
+    async addPatient(patientData) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.addPatientLocal(patientData);
+        }
+
+        try {
+            const patientId = `PAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+            
+            const patient = {
+                patient_id: patientId,
+                name: patientData.name,
+                age: patientData.age,
+                gender: patientData.gender,
+                contact_number: patientData.contact,
+                medical_history: patientData.history || '',
+                created_at: new Date().toISOString(),
+                last_session: null,
+                status: 'active'
+            };
+
+            const { data, error } = await this.supabase
+                .from('patients')
+                .insert([patient])
+                .select();
+
+            if (error) throw error;
+            return data ? data[0] : patient;
+
+        } catch (error) {
+            console.error('Add patient error:', error);
+            return this.addPatientLocal(patientData);
+        }
+    }
+
+    async getPatients() {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.getPatientsLocal();
+        }
+
+        try {
+            const { data, error } = await this.supabase
+                .from('patients')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) throw error;
+            return data || [];
+
+        } catch (error) {
+            console.error('Get patients error:', error);
+            return this.getPatientsLocal();
+        }
+    }
+
+    // ============================================
+    // 5. DATA EXPORT
+    // ============================================
+
+    async exportSessionData(sessionId, format = 'json') {
+        try {
+            const session = await this.getSession(sessionId);
+            const alerts = await this.getSessionAlerts(sessionId);
+
+            const exportData = {
+                session: session,
+                alerts: alerts,
+                export_time: new Date().toISOString(),
+                format: format
+            };
+
+            if (format === 'csv') {
+                return this.convertToCSV(exportData);
+            }
+
+            return JSON.stringify(exportData, null, 2);
+
+        } catch (error) {
+            console.error('Export error:', error);
+            return JSON.stringify({ error: 'Export failed' }, null, 2);
+        }
+    }
+
+    async getSession(sessionId) {
+        if (!this.supabase) {
+            // Fallback to localStorage
+            return this.getSessionLocal(sessionId);
+        }
+
+        try {
+            const { data, error } = await this.supabase
+                .from('sessions')
+                .select('*')
+                .eq('session_id', sessionId)
+                .single();
+
+            if (error) throw error;
+            return data;
+
+        } catch (error) {
+            console.error('Get session error:', error);
+            return this.getSessionLocal(sessionId);
+        }
+    }
+
+    convertToCSV(data) {
+        const headers = ['Timestamp', 'Type', 'Severity', 'Details'];
+        const rows = data.alerts.map(alert => [
+            alert.timestamp,
+            alert.type,
+            alert.severity,
+            alert.details
+        ]);
+
+        return [
+            headers.join(','),
+            ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+        ].join('\n');
+    }
+
+    // ============================================
+    // 6. LOCAL STORAGE FALLBACK METHODS
+    // ============================================
+
+    registerUserLocal(userData) {
+        const userId = `USER-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const user = {
+            user_id: userId,
+            full_name: userData.name,
+            email: userData.email,
+            mobile: userData.mobile,
+            age: userData.age,
+            password_hash: btoa(userData.password),
+            role: 'patient',
+            preferences: {
+                language: 'en',
+                theme: 'dark',
+                alert_methods: ['sms', 'whatsapp', 'email'],
+                accessibility: {}
+            },
+            devices_linked: [],
+            created_at: new Date().toISOString(),
+            last_login: new Date().toISOString()
+        };
+
+        // Store in localStorage
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('userEmail', userData.email);
+        localStorage.setItem('isAuthenticated', 'true');
+
+        this.currentUser = user;
+        return user;
+    }
+
+    loginUserLocal(email, password) {
+        const storedUser = localStorage.getItem('currentUser');
+        
+        if (storedUser) {
+            const user = JSON.parse(storedUser);
+            if (user.email === email && atob(user.password_hash) === password) {
+                localStorage.setItem('isAuthenticated', 'true');
+                this.currentUser = user;
+                return user;
+            }
+        }
+        
+        // For demo, create a new user
+        const user = this.registerUserLocal({
+            name: 'Demo User',
+            email: email,
+            mobile: '+910000000000',
+            age: 30,
+            password: password
+        });
+        
+        return user;
+    }
+
+    createSessionLocal(sessionData) {
+        const sessionId = `SESS-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const session = {
+            session_id: sessionId,
+            patient_id: this.currentUser?.user_id || 'DEMO-USER',
+            clinician_id: 'CLIN-001',
+            start_time: new Date().toISOString(),
+            end_time: null,
+            data_type: ['EEG', 'Lumbar'],
+            eeg_data: {},
+            lumbar_data: {},
+            alerts_generated: [],
+            notes: 'Demo session',
+            tags: ['demo']
+        };
+
+        // Store in localStorage
+        const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+        sessions.push(session);
+        localStorage.setItem('sessions', JSON.stringify(sessions));
+        localStorage.setItem('currentSession', JSON.stringify(session));
+        localStorage.setItem('currentSessionId', sessionId);
+
+        this.currentSession = session;
+        return session;
+    }
+
+    updateSessionLocal(sessionId, updates) {
+        const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+        const sessionIndex = sessions.findIndex(s => s.session_id === sessionId);
+        
+        if (sessionIndex !== -1) {
+            sessions[sessionIndex] = {
+                ...sessions[sessionIndex],
+                ...updates,
+                end_time: updates.end_time || new Date().toISOString()
+            };
+            
+            localStorage.setItem('sessions', JSON.stringify(sessions));
+            
+            if (this.currentSession?.session_id === sessionId) {
+                this.currentSession = sessions[sessionIndex];
+                localStorage.setItem('currentSession', JSON.stringify(sessions[sessionIndex]));
+            }
+            
+            return sessions[sessionIndex];
+        }
+        
+        return null;
+    }
+
+    getSessionsLocal(filters = {}) {
+        const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+        
+        let filteredSessions = sessions;
+        
+        if (filters.patient_id) {
+            filteredSessions = filteredSessions.filter(s => s.patient_id === filters.patient_id);
+        }
+        
+        if (filters.start_date && filters.end_date) {
+            filteredSessions = filteredSessions.filter(s => {
+                const startTime = new Date(s.start_time);
+                return startTime >= new Date(filters.start_date) && 
+                       startTime <= new Date(filters.end_date);
+            });
+        }
+        
+        return filteredSessions.sort((a, b) => new Date(b.start_time) - new Date(a.start_time));
+    }
+
+    createAlertLocal(alertData) {
+        const alert = {
+            ...alertData,
+            alert_id: `ALERT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            timestamp: new Date().toISOString(),
+            acknowledged: false,
+            notification_sent: {
+                sms: false,
+                whatsapp: false,
+                email: false
+            }
+        };
+
+        // Store in localStorage
+        const alerts = JSON.parse(localStorage.getItem('alerts') || '[]');
+        alerts.push(alert);
+        localStorage.setItem('alerts', JSON.stringify(alerts));
+
+        // Send notifications
+        this.sendAlertNotificationsLocal(alert);
+
+        return alert;
+    }
+
+    sendAlertNotificationsLocal(alert) {
+        // Simulate notifications in UI
+        const notificationEvent = new CustomEvent('alertNotification', {
+            detail: {
+                type: alert.type,
+                severity: alert.severity,
+                message: alert.details,
+                timestamp: alert.timestamp
+            }
+        });
+        window.dispatchEvent(notificationEvent);
+    }
+
+    getSessionAlertsLocal(sessionId) {
+        const alerts = JSON.parse(localStorage.getItem('alerts') || '[]');
+        return alerts.filter(alert => alert.session_id === sessionId)
+                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    }
+
+    addPatientLocal(patientData) {
+        const patientId = `PAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const patient = {
+            patient_id: patientId,
+            name: patientData.name,
+            age: patientData.age,
+            gender: patientData.gender,
+            contact_number: patientData.contact,
+            medical_history: patientData.history || '',
+            created_at: new Date().toISOString(),
+            last_session: null,
+            status: 'active'
+        };
+
+        const patients = JSON.parse(localStorage.getItem('patients') || '[]');
+        patients.push(patient);
+        localStorage.setItem('patients', JSON.stringify(patients));
+
+        return patient;
+    }
+
+    getPatientsLocal() {
+        return JSON.parse(localStorage.getItem('patients') || '[]');
+    }
+
+    getSessionLocal(sessionId) {
+        const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+        return sessions.find(s => s.session_id === sessionId) || null;
+    }
+}
+
+// Initialize database
+const gutAngleDB = new GutAngleDatabase();
+
+// Make available globally
+window.GutAngleDB = gutAngleDB;
+
+// Handle form submissions with database
+document.addEventListener('DOMContentLoaded', function() {
+    // Signup Form
+    const signupForm = document.getElementById('signupForm');
+    if (signupForm) {
+        signupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const userData = {
+                name: document.getElementById('signup-name').value,
+                email: document.getElementById('signup-email').value,
+                mobile: document.getElementById('signup-mobile').value,
+                age: document.getElementById('signup-age').value,
+                password: document.getElementById('signup-password').value
+            };
+            
+            try {
+                const user = await gutAngleDB.registerUser(userData);
+                alert('Registration successful! Please sign in.');
+                
+                // Switch to signin tab
+                setAuthMode('signin');
+                
+            } catch (error) {
+                alert('Registration failed: ' + error.message);
+            }
+        });
+    }
+    
+    // Signin Form
+    const signinForm = document.getElementById('signinForm');
+    if (signinForm) {
+        signinForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            try {
+                const user = await gutAngleDB.loginUser(email, password);
+                
+                // Create a demo session
+                const sessionData = {
+                    clinician_id: 'CLIN-001',
+                    data_type: ['EEG', 'Lumbar'],
+                    notes: 'Initial monitoring session'
+                };
+                
+                await gutAngleDB.createSession(sessionData);
+                
+                // Show dashboard
+                showView('dashboard');
+                
+            } catch (error) {
+                alert('Login failed: ' + error.message);
+            }
+        });
+    }
+});
+
+// Helper function for auth mode switching
+function setAuthMode(mode) {
+    // Implementation from script.js
+    const tabPill = document.getElementById('tabPill');
+    const tabSignup = document.getElementById('tabSignup');
+    const tabSignin = document.getElementById('tabSignin');
+    const signupForm = document.getElementById('signupForm');
+    const signinForm = document.getElementById('signinForm');
+    const authTitle = document.getElementById('authTitle');
+    const authCaption = document.getElementById('authCaption');
+    
+    if (mode === 'signup') {
+        tabPill.setAttribute('data-mode', 'signup');
+        tabSignup.setAttribute('data-active', 'true');
+        tabSignin.setAttribute('data-active', 'false');
+        signupForm.setAttribute('data-active', 'true');
+        signinForm.setAttribute('data-active', 'false');
+    } else {
+        tabPill.setAttribute('data-mode', 'signin');
+        tabSignup.setAttribute('data-active', 'false');
+        tabSignin.setAttribute('data-active', 'true');
+        signupForm.setAttribute('data-active', 'false');
+        signinForm.setAttribute('data-active', 'true');
+    }
+}
