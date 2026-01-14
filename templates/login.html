@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GUTANGLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div id="view-login">
+        <a href="{{ url_for('index') }}" class="back-btn">
+            <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+        </a>
+
+        <canvas id="lightRaysCanvas" class="light-rays-container"></canvas>
+
+        <main class="app-shell">
+            <section class="hero-side">
+                <div class="hero-logo-row">
+                    <div class="logo-circle">
+                        <img src="{{ url_for('static', filename='img/icon.png') }}" alt="GUTANGLE logo"
+                            onerror="this.style.display='none'">
+                    </div>
+                    <div>
+                        <div class="hero-badge">
+                            <span class="hero-dot"></span>
+                            <span>CONTINUOUS EEG & LUMBAR MONITORING</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="hero-title">
+                    GUTANGLE
+                    <span>REAL‑TIME EEG & LUMBAR</span>
+                </h1>
+
+                <p class="hero-copy">
+                    Simultaneously capture EEG signals and lumbar posture metrics.
+                    Visualize brain activity alongside spinal alignment in real time, tracking the link between
+                    neurological and musculoskeletal health.
+                </p>
+
+                <div class="hero-metrics">
+                    <div class="metric-pill">
+                        <span class="dot"></span>
+                        <strong>8-30 Hz EEG frequency bands</strong>
+                    </div>
+                    <div class="metric-pill">
+                        <span class="dot"></span>
+                        <strong>Multi‑channel EEG leads</strong>
+                    </div>
+                    <div class="metric-pill">
+                        <span class="dot"></span>
+                        <strong>Lumbar angle tracking</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="auth-side">
+                <div class="auth-tabs">
+                    <div class="auth-tab-pill" id="tabPill"
+                        data-mode="{% if request.endpoint == 'signup' %}signup{% else %}signin{% endif %}"></div>
+                    <a href="{{ url_for('signup') }}" class="auth-tab" id="tabSignup"
+                        data-active="{% if request.endpoint == 'signup' %}true{% else %}false{% endif %}">Sign up</a>
+                    <a href="{{ url_for('login') }}" class="auth-tab" id="tabSignin"
+                        data-active="{% if request.endpoint == 'login' %}true{% else %}false{% endif %}">Sign in</a>
+                </div>
+
+                {% if request.endpoint == 'signup' %}
+                <h2 class="auth-title" id="authTitle">Create GUTANGLE workspace</h2>
+                <p class="auth-caption" id="authCaption">
+                    <span>Start by creating an account for your neurophysiology lab or clinical team.</span>
+                    <span style="display:block; font-weight:bold; color:#fff;">Sign up is free.</span>
+                </p>
+
+                <form id="signupForm" class="auth-form" method="POST" action="{{ url_for('signup') }}"
+                    data-active="true" autocomplete="off">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div
+                        class="error-msg {% if category == 'error' %}error-msg--error{% else %}error-msg--success{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <div class="field-group">
+                        <label class="field-label">Full name</label>
+                        <div class="field-control">
+                            <input class="field-input" type="text" name="name" id="signup-name"
+                                placeholder="Dr. John Smith" required />
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Mobile number</label>
+                        <div class="field-control">
+                            <input class="field-input" type="tel" name="mobile" id="signup-mobile"
+                                placeholder="+91 9876543210" required />
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label class="field-label">Email ID</label>
+                        <div class="field-control">
+                            <input class="field-input" type="email" name="email" id="signup-email"
+                                placeholder="clinical.research@gmail.com" required />
+                        </div>
+                    </div>
+                    <div class="field-inline">
+                        <div class="field-group">
+                            <label class="field-label">Age</label>
+                            <div class="field-control">
+                                <input class="field-input" type="number" name="age" id="signup-age" min="10" max="120"
+                                    placeholder="35" required />
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label">Password</label>
+                            <div class="field-control">
+                                <input class="field-input" type="password" name="password" id="signup-password"
+                                    placeholder="Password" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Create monitoring account</button>
+
+                    <div class="form-footer-row">
+                        <span>Already have an account?</span>
+                        <a href="{{ url_for('login') }}" class="link-btn">Sign in</a>
+                    </div>
+                </form>
+                {% else %}
+                <h2 class="auth-title" id="authTitle">Welcome Back</h2>
+                <p class="auth-caption" id="authCaption">
+                    <span>Enter your credentials to access the dashboard.</span>
+                </p>
+
+                <form id="signinForm" class="auth-form" method="POST" action="{{ url_for('login') }}" data-active="true"
+                    autocomplete="off">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    {% for category, message in messages %}
+                    <div
+                        class="error-msg {% if category == 'error' %}error-msg--error{% else %}error-msg--success{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                    <div class="field-group">
+                        <label class="field-label">Email ID</label>
+                        <div class="field-control">
+                            <input class="field-input" type="email" name="email" id="login-email"
+                                placeholder="clinical.research@gmail.com" required />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">Password</label>
+                        <div class="field-control">
+                            <input class="field-input" type="password" name="password" id="login-password"
+                                placeholder="Enter your password" required />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Sign in to GUTANGLE dashboard</button>
+
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <span>or continue with</span>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <div class="social-row">
+                        <a href="{{ url_for('login_google') }}" class="social-btn" id="googleLogin">
+                            <span class="fab fa-google"></span>
+                            <span>Google</span>
+                        </a>
+                        <a href="{{ url_for('login_github') }}" class="social-btn" id="githubLogin">
+                            <span class="fab fa-github"></span>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+
+                    <div class="form-footer-row">
+                        <span>Don't have an account?</span>
+                        <a href="{{ url_for('signup') }}" class="link-btn">Sign up</a>
+                    </div>
+                </form>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+
+    <!-- Script included for UI effects -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
