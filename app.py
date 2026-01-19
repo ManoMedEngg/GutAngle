@@ -159,6 +159,13 @@ def authorize_github():
     return redirect(url_for('dashboard'))
 
 
+@app.route('/login/fake')
+def login_fake():
+    """Fake login for testing"""
+    _social_login_user('fake@gutangle.com', 'Fake User', 'fake')
+    return redirect(url_for('dashboard'))
+
+
 def _social_login_user(email, name, provider):
     """Helper to handle social login user creation/login"""
     conn = get_db_connection()

@@ -77,6 +77,14 @@ body {
     background: rgba(0, 0, 0, 0.9);
     border-bottom: 1px solid var(--primary-red);
 }
+.tagline {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--text-muted);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
 
 .logo {
     display: flex;
@@ -111,6 +119,15 @@ body {
 
 .nav-links a:hover {
     color: var(--primary-red);
+}
+
+.project-title {
+    display: block;
+    text-align: center;
+    font-size:50px;
+    font-weight: 600;
+    color: var(--primary-red);
+    margin-bottom: 15px;
 }
 
 /* Buttons */
@@ -378,6 +395,87 @@ body {
     .app-shell {
         grid-template-columns: 1fr;
         padding: 70px 15px 20px;
+    }
+
+    .hero-side {
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .auth-side {
+        order: 1;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .auth-tabs {
+        margin-bottom: 15px;
+    }
+
+    .field-group {
+        margin-bottom: 12px;
+    }
+
+    .primary-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .social-row {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+        padding: 60px 10px 15px;
+    }
+
+    .auth-side {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .hero-side {
+        padding: 20px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .auth-tabs {
+        border-radius: 25px;
+    }
+
+    .field-label {
+        font-size: 0.75rem;
+    }
+
+    .field-input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .primary-btn {
+        padding: 10px;
+        font-size: 0.85rem;
+        margin-top: 8px;
+    }
+
+    .divider {
+        font-size: 0.7rem;
+        margin: 15px 0;
+    }
+
+    .form-footer-row {
+        flex-direction: column;
+        gap: 8px;
     }
 }
 

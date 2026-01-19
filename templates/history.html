@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div id="view-dashboard">
         <div class="dashboard-container">
@@ -25,13 +27,16 @@
                 </div>
                 <nav class="sidebar-nav">
                     <ul>
-                        <li class="nav-item"><a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                        <li class="nav-item active"><a href="{{ url_for('history') }}"><i class="fas fa-history"></i><span>History</span></a></li>
-                        <li class="nav-item"><a href="{{ url_for('settings') }}"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+                        <li class="nav-item"><a href="{{ url_for('dashboard') }}"><i
+                                    class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                        <li class="nav-item active"><a href="{{ url_for('history') }}"><i
+                                    class="fas fa-history"></i><span>History</span></a></li>
+                        <li class="nav-item"><a href="{{ url_for('settings') }}"><i
+                                    class="fas fa-cog"></i><span>Settings</span></a></li>
                     </ul>
                 </nav>
                 <div class="sidebar-footer">
-                    <button class="logout-btn" onclick="window.location.href='{{ url_for('logout') }}'">
+                    <button class="logout-btn" onclick="window.location.href=`{{ url_for('logout') }}`; ">
                         <i class="fas fa-sign-out-alt"></i><span>Logout</span>
                     </button>
                 </div>
@@ -60,7 +65,8 @@
                                 </thead>
                                 <tbody id="sessions-table-body">
                                     <tr>
-                                        <td colspan="5" style="text-align: center; padding: 40px; color: var(--text-muted);">
+                                        <td colspan="5"
+                                            style="text-align: center; padding: 40px; color: var(--text-muted);">
                                             Loading sessions...
                                         </td>
                                     </tr>
@@ -94,7 +100,7 @@
             })
             .catch(error => {
                 console.error('Error loading sessions:', error);
-                document.getElementById('sessions-table-body').innerHTML = 
+                document.getElementById('sessions-table-body').innerHTML =
                     '<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">Error loading sessions</td></tr>';
             });
 
@@ -106,4 +112,5 @@
         }
     </script>
 </body>
+
 </html>

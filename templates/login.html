@@ -92,8 +92,8 @@
                     <div class="field-group">
                         <label class="field-label">Full name</label>
                         <div class="field-control">
-                            <input class="field-input" type="text" name="name" id="signup-name"
-                                placeholder="Dr. John Smith" required />
+                            <input class="field-input" type="text" name="name" id="signup-name" placeholder="Manoj"
+                                required />
                         </div>
                     </div>
                     <div class="field-group">
@@ -107,7 +107,7 @@
                         <label class="field-label">Email ID</label>
                         <div class="field-control">
                             <input class="field-input" type="email" name="email" id="signup-email"
-                                placeholder="clinical.research@gmail.com" required />
+                                placeholder="medicalengineer@gmail.com" required />
                         </div>
                     </div>
                     <div class="field-inline">
@@ -115,7 +115,7 @@
                             <label class="field-label">Age</label>
                             <div class="field-control">
                                 <input class="field-input" type="number" name="age" id="signup-age" min="10" max="120"
-                                    placeholder="35" required />
+                                    placeholder="28" required />
                             </div>
                         </div>
                         <div class="field-group">
@@ -157,7 +157,7 @@
                         <label class="field-label">Email ID</label>
                         <div class="field-control">
                             <input class="field-input" type="email" name="email" id="login-email"
-                                placeholder="clinical.research@gmail.com" required />
+                                placeholder="medicalengineer@gmail.com" required />
                         </div>
                     </div>
 
@@ -185,6 +185,10 @@
                         <a href="{{ url_for('login_github') }}" class="social-btn" id="githubLogin">
                             <span class="fab fa-github"></span>
                             <span>GitHub</span>
+                        </a>
+                        <a href="{{ url_for('login_fake') }}" class="social-btn" id="fakeLogin">
+                            <span class="fas fa-user-secret"></span>
+                            <span>Fake Login</span>
                         </a>
                     </div>
 
