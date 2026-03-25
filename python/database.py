@@ -7,10 +7,21 @@ SQLite Database Schema
 
 import sqlite3
 import json
+import os
+import shutil
+from os.path import dirname, join
 from datetime import datetime
 
 DATABASE = 'gutangle.db'
 
+if "HOME" in os.environ:
+    db_dir = os.environ["HOME"]
+    writable_db_path = join(db_dir, DATABASE)
+    if not os.path.exists(writable_db_path):
+        asset_db_path = join(dirname(__file__), DATABASE)
+        if os.path.exists(asset_db_path):
+            shutil.copy2(asset_db_path, writable_db_path)
+    DATABASE = writable_db_path
 
 def get_db_connection():
     """Get database connection"""
@@ -73,6 +84,23 @@ def init_db():
             notification_sent TEXT,
             FOREIGN KEY (session_id) REFERENCES sessions (session_id),
             FOREIGN KEY (user_id) REFERENCES users (user_id)
+        )
+    ''')
+
+    # Readings table (user-scoped physiological samples)
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS readings (
+            reading_id TEXT PRIMARY KEY,
+            user_id TEXT NOT NULL,
+            session_id TEXT,
+            eeg_fp1 REAL NOT NULL,
+            eeg_fp2 REAL NOT NULL,
+            eeg_c3 REAL NOT NULL,
+            eeg_c4 REAL NOT NULL,
+            lumbar_angle REAL NOT NULL,
+            captured_at TEXT NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users (user_id),
+            FOREIGN KEY (session_id) REFERENCES sessions (session_id)
         )
     ''')
     

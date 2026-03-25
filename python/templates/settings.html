@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GutAngle | System Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .settings-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .settings-sidebar {
+            background: rgba(0, 0, 0, 0.4);
+            border-right: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .settings-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-link {
+            padding: 12px 15px;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #00F2FF;
+            background: rgba(0, 242, 255, 0.05);
+            border-left: 2px solid #00F2FF;
+        }
+
+        .settings-main {
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .settings-section {
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .field-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .field-box label {
+            display: block;
+            font-size: 0.6rem;
+            color: #00F2FF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .field-value {
+            font-size: 0.9rem;
+            color: #fff;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="medical-theme">
+    <div class="scan-line"></div>
+
+    <div class="settings-layout">
+        <aside class="settings-sidebar">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="{{ url_for('static', filename='img/icon.png') }}" width="30" height="30">
+                <span style="font-size: 0.8rem; letter-spacing: 2px; font-weight: 900;">GUTANGLE</span>
+            </div>
+
+            <nav class="settings-nav">
+                <a href="/dashboard" class="nav-link"><i class="fas fa-home"></i> NEXUS_CORE</a>
+                <a href="/history" class="nav-link"><i class="fas fa-history"></i> SESSION_LOGS</a>
+                <a href="/settings" class="nav-link active"><i class="fas fa-cog"></i> SYSTEM_CONFIG</a>
+            </nav>
+
+            <div style="margin-top: auto;">
+                <a href="/logout" class="nav-link" style="color: #FF003C;"><i class="fas fa-power-off"></i> TERMINATE_SESSION</a>
+            </div>
+        </aside>
+
+        <main class="settings-main">
+            <h2 class="hud-header" style="font-size: 1.5rem; margin-bottom: 40px;">SYSTEM_CONFIG</h2>
+
+            <section class="settings-section">
+                <h4 style="font-size: 0.7rem; color: #00F2FF; opacity: 0.5;">[USER_PROFILE]</h4>
+                <div class="field-box">
+                    <label>OPERATOR_NAME</label>
+                    <div class="field-value">{{ session.get('user_name', 'UNKNOWN_OPERATOR') }}</div>
+                </div>
+                <div class="field-box">
+                    <label>ACCESS_IDENT</label>
+                    <div class="field-value">{{ session.get('user_email', 'NO_LINK') }}</div>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h4 style="font-size: 0.7rem; color: #00F2FF; opacity: 0.5;">[INTERFACE_PREFERENCES]</h4>
+                <div class="field-box">
+                    <label>VISUAL_ENGINE</label>
+                    <div class="field-value">CYBER_MEDICAL_v2 (DARK_MODE)</div>
+                </div>
+                <div class="field-box">
+                    <label>DATA_REFRESH_RATE</label>
+                    <div class="field-value">16ms (ULTRA_LOW_LATENCY)</div>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h4 style="font-size: 0.7rem; color: #FF003C; opacity: 0.5;">[DANGER_ZONE]</h4>
+                <button class="glass-panel" style="width: 100%; margin-top: 15px; padding: 15px; color: #FF003C; border-color: rgba(255, 0, 60, 0.2);">RESET_ALL_DATA</button>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

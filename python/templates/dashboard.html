@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GUTANGLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .nexus-grid {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar monitor sidecard"
+                "sidebar stats sidecard";
+            grid-template-columns: 260px 1fr 340px;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: 20px;
+            padding: 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 0, 60, 0.02) 0%, transparent 100%);
+        }
+
+        /* Header Overhaul */
+        .nexus-header {
+            grid-area: header;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(0,0,0,0.5); border-bottom: 2px solid var(--accent-crimson);
+            padding: 10px 30px; border-radius: 15px; border: 1px solid var(--border-glass);
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+
+        .header-brand {
+            display: flex; align-items: center; gap: 20px;
+        }
+
+        .header-icon {
+            width: 50px; height: 50px; border-radius: 50%;
+            border: 1px solid var(--accent-crimson);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .header-title-group h2 {
+            margin: 0; font-size: 1.4rem; letter-spacing: 2px;
+            color: white; text-transform: uppercase;
+        }
+
+        .header-title-group span {
+            font-size: 0.7rem; color: var(--accent-cyan);
+            letter-spacing: 4px; text-transform: uppercase; opacity: 0.8;
+        }
+
+        /* Sidebar Glass */
+        .sidebar {
+            grid-area: sidebar;
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .sidebar-card {
+            padding: 20px;
+        }
+
+        .nav-list {
+            list-style: none; padding: 0; margin: 0;
+        }
+
+        .nav-item {
+            margin-bottom: 15px;
+        }
+
+        .nav-link {
+            display: flex; align-items: center; gap: 15px;
+            color: var(--text-secondary); text-decoration: none;
+            padding: 12px 20px; border-radius: 12px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: white; background: rgba(255,0,60,0.1);
+            border-color: rgba(255,0,60,0.3);
+            box-shadow: inset 0 0 15px rgba(255,0,60,0.1);
+        }
+
+        .nav-link i { font-size: 1.2rem; min-width: 25px; text-align: center; }
+
+        /* Main Monitoring Area */
+        .monitor-pane {
+            grid-area: monitor;
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .chart-card {
+            flex: 1; padding: 25px; min-height: 400px;
+            position: relative;
+        }
+
+        .metric-row {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;
+        }
+
+        .metric-card {
+            padding: 15px; text-align: center;
+        }
+
+        .metric-val {
+            font-size: 1.8rem; font-weight: 800; color: white;
+            margin: 10px 0;
+        }
+
+        .metric-lbl {
+            font-size: 0.7rem; text-transform: uppercase;
+            color: var(--text-secondary); letter-spacing: 1px;
+        }
+
+        /* Right Panel */
+        .sidecard-pane {
+            grid-area: sidecard;
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .lumbar-viz-card {
+            padding: 20px; text-align: center;
+        }
+
+        .spine-model-container {
+            height: 250px; width: 100%; position: relative;
+            margin: 20px 0; background: radial-gradient(circle, rgba(255,0,60,0.05) 0%, transparent 80%);
+        }
+
+        .alerts-card {
+            flex: 1; padding: 20px; overflow-y: auto;
+        }
+
+        /* Status Badge for BT */
+        .bt-badge {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 15px; background: rgba(0,0,0,0.4);
+            border-radius: 30px; border: 1px solid var(--border-glass);
+        }
+
+        #bt-icon { color: #6c757d; transition: color 0.3s; }
+        #bt-icon.connected { color: var(--accent-cyan); text-shadow: 0 0 10px var(--accent-cyan); }
+    </style>
+</head>
+<body>
+    <div class="nexus-grid">
+        <header class="nexus-header glass-panel">
+            <div class="header-brand">
+                <img src="{{ url_for('static', filename='img/icon.png') }}" alt="G" class="header-icon">
+                <div class="header-title-group">
+                    <h2>GUTANGLE</h2>
+                    <span>High-Fiddle Biometry</span>
+                </div>
+            </div>
+            
+            <div class="bt-badge">
+                <i class="fab fa-bluetooth-b" id="bt-icon"></i>
+                <span id="bt-text" class="metric-lbl">Scanning...</span>
+            </div>
+
+            <div class="header-actions">
+                <button class="premium-btn" id="start-session-btn" style="font-size: 0.7rem; padding: 8px 15px;">Initialize Optima</button>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <div class="sidebar-card glass-panel hud-border">
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="fas fa-microchip"></i>
+                                <span>Core Monitor</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('history') }}" class="nav-link">
+                                <i class="fas fa-database"></i>
+                                <span>Archives</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('settings') }}" class="nav-link">
+                                <i class="fas fa-sliders-h"></i>
+                                <span>Nexus Config</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('logout') }}" class="nav-link" style="color: #ff4444;">
+                                <i class="fas fa-power-off"></i>
+                                <span>Override Exit</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="sidebar-card glass-panel hud-border" style="flex: 1;">
+                <h4 class="metric-lbl" style="margin-bottom: 20px;">Patient Bio-Sign</h4>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent-crimson); padding: 3px;">
+                        <img src="{{ url_for('static', filename='img/icon.png') }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 1rem;">{{ session.get('user_name', 'Subject-01') }}</div>
+                        <div style="font-size: 0.7rem; color: var(--text-secondary);">ID: {{ session.get('user_id', 'N/A') }}</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="monitor-pane">
+            <div class="chart-card glass-panel hud-border">
+                <div class="scan-line"></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 class="glow-text" style="margin: 0; font-size: 1rem; color: var(--accent-cyan);"><i class="fas fa-wave-square"></i> EEG SYNC-STREAM</h3>
+                    <div class="metric-lbl" id="eeg-freq-label">Alpha Band (8-12 Hz)</div>
+                </div>
+                <div style="height: calc(100% - 40px); width: 100%;">
+                    <canvas id="eeg-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="metric-row">
+                <div class="metric-card glass-panel hud-border">
+                    <div class="metric-lbl">Gastric RMS</div>
+                    <div class="metric-val" id="egg-rms-val" style="color: var(--accent-cyan);">0.00</div>
+                    <div class="metric-lbl">μV</div>
+                </div>
+                <div class="metric-card glass-panel hud-border">
+                    <div class="metric-lbl">Respiration</div>
+                    <div class="metric-val" id="resp-val">00</div>
+                    <div class="metric-lbl">RPM</div>
+                </div>
+                <div class="metric-card glass-panel hud-border">
+                    <div class="metric-lbl">Lumbar Angle</div>
+                    <div class="metric-val" id="lumbar-angle-val" style="color: var(--accent-crimson);">00.0</div>
+                    <div class="metric-lbl">Degrees</div>
+                </div>
+                <div class="metric-card glass-panel hud-border">
+                    <div class="metric-lbl">Alert Index</div>
+                    <div class="metric-val" id="alert-val">0</div>
+                    <div class="metric-lbl">Active Events</div>
+                </div>
+            </div>
+        </main>
+
+        <section class="sidecard-pane">
+            <div class="lumbar-viz-card glass-panel hud-border">
+                <h3 class="metric-lbl" style="text-align: left;"><i class="fas fa-bone"></i> Posture Vector</h3>
+                <div class="spine-model-container">
+                    <!-- Custom SVG or visual model for lumbar -->
+                    <svg viewBox="0 0 100 200" style="height: 100%;">
+                        <path id="spine-svg-path" d="M50,180 Q50,90 50,20" stroke="var(--accent-crimson)" stroke-width="8" fill="none" stroke-linecap="round" />
+                        <circle cx="50" cy="180" r="10" fill="var(--bg-dark)" stroke="var(--accent-crimson)" stroke-width="2" />
+                    </svg>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                    <div class="metric-lbl">Tilt Status:</div>
+                    <div class="metric-lbl" id="tilt-status" style="color: #00FF00;">NOMINAL</div>
+                </div>
+            </div>
+
+            <div class="alerts-card glass-panel hud-border">
+                <h3 class="metric-lbl"><i class="fas fa-exclamation-triangle"></i> Event Feed</h3>
+                <div id="event-feed" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                    <!-- Real-time events will populate here -->
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; padding: 20px;">Waiting for bio-sync...</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bridge.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initNexus === 'function') initNexus();
+        });
+    </script>
+</body>
+</html>

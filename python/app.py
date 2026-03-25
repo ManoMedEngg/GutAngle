@@ -6,20 +6,28 @@ Flask Application with SQLite Database
 Python 3 Compatible
 """
 
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash, Response
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
-import sqlite3
-import json
-import os
+import sqlite3, json, os, queue, threading, time, math
 from datetime import datetime
 from database import init_db, get_db_connection
+import io
+from flask import send_file
+try:
+    from authlib.integrations.flask_client import OAuth
+except ImportError:
+    OAuth = None
 
 app = Flask(__name__)
 app.secret_key = 'gutangle-secret-key-2025-change-in-production'
 
-# Initialize database
+# ── Global belt data queue (written by Android BT bridge or serial) ──
+belt_data_queue = queue.Queue(maxsize=200)
+APP_PIN = '123456'          # Change this in production
+
 init_db()
+
 
 
 # ============================================
@@ -39,51 +47,63 @@ def login_required(f):
 # ============================================
 @app.route('/')
 def index():
-    """Landing page"""
-    return render_template('index.html')
+    """Landing page - Redirects to registration or PIN entry"""
+    conn = get_db_connection()
+    user_count = conn.execute('SELECT COUNT(*) FROM users').fetchone()[0]
+    conn.close()
+    
+    if user_count == 0:
+        return redirect(url_for('register'))
+    
+    if 'user_id' in session and session.get('pin_verified'):
+        return redirect(url_for('dashboard'))
+        
+    return redirect(url_for('pin'))
 
 
 # ============================================
 # 2.5 OAUTH CONFIGURATION
 # ============================================
-from authlib.integrations.flask_client import OAuth
-
-oauth = OAuth(app)
+oauth = OAuth(app) if OAuth else None
 
 # Google Configuration
 # REPLACE THESE WITH YOUR ACTUAL CREDENTIALS
 app.config['GOOGLE_CLIENT_ID'] = os.environ.get('GOOGLE_CLIENT_ID', 'placeholder-google-client-id')
 app.config['GOOGLE_CLIENT_SECRET'] = os.environ.get('GOOGLE_CLIENT_SECRET', 'placeholder-google-client-secret')
 
-google = oauth.register(
-    name='google',
-    client_id=app.config['GOOGLE_CLIENT_ID'],
-    client_secret=app.config['GOOGLE_CLIENT_SECRET'],
-    access_token_url='https://accounts.google.com/o/oauth2/token',
-    access_token_params=None,
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
-    authorize_params={'prompt': 'select_account'},
-    api_base_url='https://www.googleapis.com/oauth2/v1/',
-    userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openid to fetch user info
-    client_kwargs={'scope': 'openid email profile'},
-)
+google = None
+if oauth:
+    google = oauth.register(
+        name='google',
+        client_id=app.config['GOOGLE_CLIENT_ID'],
+        client_secret=app.config['GOOGLE_CLIENT_SECRET'],
+        access_token_url='https://accounts.google.com/o/oauth2/token',
+        access_token_params=None,
+        authorize_url='https://accounts.google.com/o/oauth2/auth',
+        authorize_params={'prompt': 'select_account'},
+        api_base_url='https://www.googleapis.com/oauth2/v1/',
+        userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openid to fetch user info
+        client_kwargs={'scope': 'openid email profile'},
+    )
 
 # GitHub Configuration
 # REPLACE THESE WITH YOUR ACTUAL CREDENTIALS
 app.config['GITHUB_CLIENT_ID'] = os.environ.get('GITHUB_CLIENT_ID', 'placeholder-github-client-id')
 app.config['GITHUB_CLIENT_SECRET'] = os.environ.get('GITHUB_CLIENT_SECRET', 'placeholder-github-client-secret')
 
-github = oauth.register(
-    name='github',
-    client_id=app.config['GITHUB_CLIENT_ID'],
-    client_secret=app.config['GITHUB_CLIENT_SECRET'],
-    access_token_url='https://github.com/login/oauth/access_token',
-    access_token_params=None,
-    authorize_url='https://github.com/login/oauth/authorize',
-    authorize_params=None,
-    api_base_url='https://api.github.com/',
-    client_kwargs={'scope': 'user:email'},
-)
+github = None
+if oauth:
+    github = oauth.register(
+        name='github',
+        client_id=app.config['GITHUB_CLIENT_ID'],
+        client_secret=app.config['GITHUB_CLIENT_SECRET'],
+        access_token_url='https://github.com/login/oauth/access_token',
+        access_token_params=None,
+        authorize_url='https://github.com/login/oauth/authorize',
+        authorize_params=None,
+        api_base_url='https://api.github.com/',
+        client_kwargs={'scope': 'user:email'},
+    )
 
 
 # ============================================
@@ -115,12 +135,18 @@ def login():
 
 @app.route('/login/google')
 def login_google():
+    if not google:
+        flash('Google login is not available: authlib is not installed.', 'error')
+        return redirect(url_for('login'))
     redirect_uri = url_for('authorize_google', _external=True)
     return google.authorize_redirect(redirect_uri)
 
 
 @app.route('/login/google/callback')
 def authorize_google():
+    if not google:
+        flash('Google login is not available: authlib is not installed.', 'error')
+        return redirect(url_for('login'))
     token = google.authorize_access_token()
     user_info = google.get('userinfo').json()
     email = user_info['email']
@@ -134,12 +160,18 @@ def authorize_google():
 
 @app.route('/login/github')
 def login_github():
+    if not github:
+        flash('GitHub login is not available: authlib is not installed.', 'error')
+        return redirect(url_for('login'))
     redirect_uri = url_for('authorize_github', _external=True)
     return github.authorize_redirect(redirect_uri)
 
 
 @app.route('/login/github/callback')
 def authorize_github():
+    if not github:
+        flash('GitHub login is not available: authlib is not installed.', 'error')
+        return redirect(url_for('login'))
     token = github.authorize_access_token()
     resp = github.get('user').json()
     email = resp.get('email')
@@ -161,7 +193,7 @@ def authorize_github():
 
 @app.route('/login/fake')
 def login_fake():
-    """Fake login for testing"""
+    """Quick fake login for testing"""
     _social_login_user('fake@gutangle.com', 'Fake User', 'fake')
     return redirect(url_for('dashboard'))
 
@@ -203,20 +235,24 @@ def _social_login_user(email, name, provider):
     conn.close()
 
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    """Signup page"""
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    """First-time registration page"""
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
         mobile = request.form.get('mobile')
         age = request.form.get('age')
-        password = request.form.get('password')
+        pin = request.form.get('pin')
         
-        if not all([name, email, mobile, age, password]):
-            flash('All fields are required', 'error')
-            return render_template('login.html')
-        
+        if not all([name, email, mobile, age, pin]):
+            flash('ALL_FIELDS_REQUIRED', 'error')
+            return render_template('registration.html')
+            
+        if len(pin) != 6:
+            flash('PIN_MUST_BE_6_DIGITS', 'error')
+            return render_template('registration.html')
+            
         conn = get_db_connection()
         
         # Check if user already exists
@@ -225,33 +261,38 @@ def signup():
         ).fetchone()
         
         if existing_user:
-            flash('Email already registered', 'error')
+            flash('EMAIL_ALREADY_REGISTERED', 'error')
             conn.close()
-            return render_template('login.html')
+            return render_template('registration.html')
         
         # Create new user
-        password_hash = generate_password_hash(password)
-        user_id = f"USER-{int(datetime.now().timestamp())}-{abs(hash(email)) % 10000}"
+        # We store PIN as the password hash for subsequent logins
+        password_hash = generate_password_hash(pin)
+        user_id = f"GT-{int(datetime.now().timestamp())}-{abs(hash(email)) % 1000}"
         
         try:
             conn.execute(
                 '''INSERT INTO users (user_id, full_name, email, mobile, age, password_hash, role, preferences, created_at, last_login)
                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
                 (user_id, name, email, mobile, int(age), password_hash, 'patient',
-                 json.dumps({'language': 'en', 'theme': 'dark', 'alert_methods': ['sms', 'whatsapp', 'email']}),
+                 json.dumps({'language': 'en', 'theme': 'green', 'alert_methods': ['sms', 'email']}),
                  datetime.now().isoformat(), datetime.now().isoformat())
             )
             conn.commit()
             conn.close()
             
-            flash('Registration successful! Please login.', 'success')
-            return redirect(url_for('login'))
+            session['user_id'] = user_id
+            session['user_name'] = name
+            session['pin_verified'] = True
+            
+            flash('REGISTRATION_SUCCESSFUL', 'success')
+            return redirect(url_for('dashboard'))
         except Exception as e:
             conn.close()
-            flash(f'Registration failed: {str(e)}', 'error')
-            return render_template('login.html')
-    
-    return render_template('login.html')
+            flash(f'REGISTRATION_FAILED: {str(e)}', 'error')
+            return render_template('registration.html')
+            
+    return render_template('registration.html')
 
 
 @app.route('/logout')
@@ -356,6 +397,70 @@ def get_alerts():
 
 
 # ============================================
+# 6.5 API ROUTES - READINGS
+# ============================================
+@app.route('/api/readings', methods=['GET'])
+@login_required
+def get_readings():
+    """Get EEG/Lumbar readings for current user only"""
+    try:
+        limit = int(request.args.get('limit', 120))
+    except ValueError:
+        limit = 120
+    limit = max(1, min(limit, 1000))
+
+    conn = get_db_connection()
+    readings = conn.execute(
+        '''SELECT reading_id, session_id, eeg_fp1, eeg_fp2, eeg_c3, eeg_c4, lumbar_angle, captured_at
+           FROM readings
+           WHERE user_id = ?
+           ORDER BY captured_at DESC
+           LIMIT ?''',
+        (session['user_id'], limit)
+    ).fetchall()
+    conn.close()
+
+    readings_list = [dict(row) for row in reversed(readings)]
+    return jsonify(readings_list)
+
+
+@app.route('/api/readings', methods=['POST'])
+@login_required
+def create_reading():
+    """Store one EEG/Lumbar reading for current user only"""
+    data = request.json or {}
+    required_fields = ['eeg_fp1', 'eeg_fp2', 'eeg_c3', 'eeg_c4', 'lumbar_angle']
+
+    if not all(field in data for field in required_fields):
+        return jsonify({'success': False, 'error': 'Missing required reading fields'}), 400
+
+    try:
+        eeg_fp1 = float(data['eeg_fp1'])
+        eeg_fp2 = float(data['eeg_fp2'])
+        eeg_c3 = float(data['eeg_c3'])
+        eeg_c4 = float(data['eeg_c4'])
+        lumbar_angle = float(data['lumbar_angle'])
+    except (TypeError, ValueError):
+        return jsonify({'success': False, 'error': 'Reading values must be numeric'}), 400
+
+    reading_id = f"READ-{int(datetime.now().timestamp())}-{abs(hash(str(datetime.now()))) % 10000}"
+    session_id = data.get('session_id')
+    captured_at = datetime.now().isoformat()
+
+    conn = get_db_connection()
+    conn.execute(
+        '''INSERT INTO readings (
+               reading_id, user_id, session_id, eeg_fp1, eeg_fp2, eeg_c3, eeg_c4, lumbar_angle, captured_at
+           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+        (reading_id, session['user_id'], session_id, eeg_fp1, eeg_fp2, eeg_c3, eeg_c4, lumbar_angle, captured_at)
+    )
+    conn.commit()
+    conn.close()
+
+    return jsonify({'success': True, 'reading_id': reading_id, 'captured_at': captured_at})
+
+
+# ============================================
 # 7. API ROUTES - PATIENTS
 # ============================================
 @app.route('/api/patients', methods=['GET'])
@@ -416,8 +521,121 @@ def settings():
     return render_template('settings.html', user=user)
 
 
+
+@app.route('/qr')
+def generate_qr():
+    return "QR code generation disabled for Android build.", 200
+
+
+# ============================================
+# NEW: PIN / BLUETOOTH / HOME ROUTES
+# ============================================
+@app.route('/pin')
+def pin():
+    """6-digit PIN entry screen"""
+    return render_template('pin.html', error='')
+
+
+@app.route('/verify_pin', methods=['POST'])
+def verify_pin():
+    """Verify the 6-digit PIN against registered user."""
+    data = request.get_json(silent=True) or {}
+    entered = str(data.get('pin', ''))
+    
+    conn = get_db_connection()
+    user = conn.execute('SELECT * FROM users LIMIT 1').fetchone() # Get the first (only) user
+    conn.close()
+    
+    if user and check_password_hash(user['password_hash'], entered):
+        session['user_id'] = user['user_id']
+        session['user_name'] = user['full_name']
+        session['pin_verified'] = True
+        return jsonify({'success': True})
+        
+    return jsonify({'success': False, 'error': 'INCORRECT_IDENTITY_PIN'})
+
+
+@app.route('/bluetooth')
+def bluetooth():
+    """Bluetooth device scan screen"""
+    return render_template('bluetooth.html')
+
+
+@app.route('/api/bt_devices')
+def bt_devices():
+    """Return list of paired/scanned BT devices.
+    The Android BT service populates this via a shared file or in-memory store.
+    Falls back to empty list for demo."""
+    try:
+        devices_file = os.path.join(os.path.dirname(__file__), 'bt_devices.json')
+        if os.path.exists(devices_file):
+            with open(devices_file) as f:
+                devices = json.load(f)
+        else:
+            devices = []
+    except Exception:
+        devices = []
+    return jsonify({'devices': devices})
+
+
+@app.route('/api/bt_connect', methods=['POST'])
+def bt_connect():
+    """Store the selected device; Android side initiates the real connection."""
+    data = request.get_json(silent=True) or {}
+    session['bt_device'] = data
+    return jsonify({'success': True, 'device': data})
+
+
+@app.route('/api/belt_push', methods=['POST'])
+def belt_push():
+    """Receive a line of CSV from the Android BT service and enqueue it."""
+    data = request.get_json(silent=True) or {}
+    line = data.get('data', '')
+    if line:
+        try:
+            belt_data_queue.put_nowait(line)
+        except queue.Full:
+            belt_data_queue.get_nowait()   # drop oldest
+            belt_data_queue.put_nowait(line)
+    return jsonify({'ok': True})
+
+
+@app.route('/api/belt_stream')
+def belt_stream():
+    """Server-Sent Events stream delivering belt CSV lines to the browser."""
+    def generate():
+        phase = [0.0]
+        while True:
+            try:
+                line = belt_data_queue.get(timeout=0.3)
+                yield f'data: {line}\n\n'
+            except queue.Empty:
+                # Demo simulation when no real belt is connected
+                phase[0] += 0.12
+                p = phase[0]
+                egg  = round(300 + 150 * math.sin(p * 0.8) + (hash(str(p)) % 40 - 20), 2)
+                resp = round(15  + 5   * math.sin(p * 0.3), 2)
+                bend = round(18  + 10  * math.sin(p * 0.5), 2)
+                ax   = round(0.1 * math.sin(p), 3)
+                ay   = round(0.05 * math.cos(p * 1.3), 3)
+                az   = round(1.0 + 0.05 * math.sin(p * 2), 3)
+                yield f'data: {egg},{resp},{bend},{ax},{ay},{az}\n\n'
+    return Response(generate(), mimetype='text/event-stream',
+                    headers={'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no'})
+
+
+@app.route('/home')
+def home():
+    """Real-time sensor dashboard (PIN protected)"""
+    return render_template('home.html')
+
+
 # ============================================
 # 10. RUN APPLICATION
 # ============================================
+def start_server():
+    app.run(host='127.0.0.1', port=5000, threaded=True)
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
+

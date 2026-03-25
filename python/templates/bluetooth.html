@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GutAngle | Sync Protocol</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sync-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: radial-gradient(circle at center, #0A0A15 0%, #050510 100%);
+        }
+
+        .scanner-ring {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 242, 255, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .scanner-ring::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border-top: 2px solid #00F2FF;
+            animation: spin 2s linear infinite;
+        }
+
+        .scanner-ring i {
+            font-size: 4rem;
+            color: #00F2FF;
+            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5));
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .device-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .device-card:hover {
+            background: rgba(0, 242, 255, 0.05);
+            border-color: rgba(0, 242, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .device-info h4 {
+            margin: 0;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .device-info span {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: monospace;
+        }
+
+        .status-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #00F2FF;
+        }
+
+        .btn-primary {
+            background: #00F2FF;
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="medical-theme">
+    <div class="scan-line"></div>
+    
+    <div class="sync-container">
+        <div class="scanner-ring" id="scanner">
+            <i class="fab fa-bluetooth-b"></i>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 class="hud-header" style="margin-bottom: 5px;">SYNC_PROTOCOL</h2>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin: 0;">SCANNING FOR GUTANGLE HARNESS v4.2</p>
+        </div>
+
+        <div id="status-display" class="status-badge" style="margin-bottom: 20px;">READY_FOR_UP_LINK</div>
+
+        <div id="device-list" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- Placeholder -->
+            <div style="opacity: 0.3; font-style: italic; font-size: 0.8rem;">Searching...</div>
+        </div>
+
+        <button id="scan-btn" class="btn-primary" onclick="startScan()">INITIATE_SCAN</button>
+    </div>
+
+    <script>
+        let connected = false;
+
+        function startScan() {
+            const btn = document.getElementById('scan-btn');
+            const status = document.getElementById('status-display');
+            btn.disabled = true;
+            btn.textContent = 'SCANNING...';
+            status.textContent = 'PROTOCOL_INITIATED';
+
+            if (window.AndroidBluetooth) {
+                AndroidBluetooth.startBluetoothScan();
+            }
+            
+            // Poll for devices
+            setTimeout(fetchDevices, 2000);
+        }
+
+        function fetchDevices() {
+            fetch('/api/bt_devices')
+                .then(r => r.json())
+                .then(data => {
+                    const list = document.getElementById('device-list');
+                    const btn = document.getElementById('scan-btn');
+                    btn.disabled = false;
+                    btn.textContent = 'RESHARPEN_SCAN';
+                    
+                    if (!data.devices || data.devices.length === 0) {
+                        list.innerHTML = '<div style="opacity:0.3; font-size:0.8rem;">NO_NODES_FOUND</div>';
+                        return;
+                    }
+                    
+                    list.innerHTML = '';
+                    data.devices.forEach(dev => {
+                        const card = document.createElement('div');
+                        card.className = 'device-card';
+                        card.innerHTML = `
+                            <div class="device-info">
+                                <h4>${dev.name || 'ANONYMOUS_UNIT'}</h4>
+                                <span>${dev.address}</span>
+                            </div>
+                            <div class="status-badge">LINK</div>
+                        `;
+                        card.onclick = () => connectDevice(dev.address, dev.name, card);
+                        list.appendChild(card);
+                    });
+                })
+                .catch(() => showDemoDevices());
+        }
+
+        function showDemoDevices() {
+            const demo = [
+                { name: 'GUTBELT_PRO_X1', address: 'A8:23:C9:11:00:FF' },
+                { name: 'GA_HARNESS_BETA', address: 'FF:00:AA:BB:CC:DD' }
+            ];
+            const list = document.getElementById('device-list');
+            list.innerHTML = '';
+            demo.forEach(dev => {
+                const card = document.createElement('div');
+                card.className = 'device-card';
+                card.innerHTML = `
+                    <div class="device-info">
+                        <h4>${dev.name}</h4>
+                        <span>${dev.address}</span>
+                    </div>
+                    <div class="status-badge">LINK</div>
+                `;
+                card.onclick = () => connectDevice(dev.address, dev.name, card);
+                list.appendChild(card);
+            });
+        }
+
+        function connectDevice(address, name, card) {
+            if (connected) return;
+            const status = document.getElementById('status-display');
+            status.style.color = '#FFAA00';
+            status.textContent = `SYNCING_${name}...`;
+
+            if (window.AndroidBluetooth) {
+                AndroidBluetooth.connectToDevice(address);
+            }
+            
+            fetch('/api/bt_connect', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ address, name })
+            }).then(() => {
+                // Success feedback
+                card.style.borderColor = '#00F2FF';
+                card.style.background = 'rgba(0, 242, 255, 0.1)';
+            });
+        }
+
+        window.onBluetoothStatus = function(statusMsg) {
+            const status = document.getElementById('status-display');
+            if (statusMsg.toLowerCase().includes('connected')) {
+                connected = true;
+                status.style.color = '#00FF00';
+                status.textContent = 'SYNC_STABLISHED';
+                setTimeout(() => { window.location.href = '/dashboard'; }, 1000);
+            } else {
+                status.textContent = statusMsg.toUpperCase();
+            }
+        };
+    </script>
+</body>
+</html>
+

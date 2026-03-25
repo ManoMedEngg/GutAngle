@@ -1,78 +1,48 @@
-<h1 align="center">GUTANGLE - A Smart Belt for Spine and Stomach Wellness</h1>
+# GutAngle: Smart Belt for Spine and Stomach Wellness
 
-<p align="center">
-  <img src="img/icon.png" alt="GutAngle Logo" width="240" style="border-radius: 80%; object-fit: cover;">
-</p>
+**GutAngle** is a clinical-grade neurophysiology platform designed for real-time EEG and lumbar monitoring. It features a modern, bio-centric "Cyber-Medical" aesthetic with a specialized focus on accessibility and data security.
 
-# 🧠🔬 GutAngle Dashboard
-### *Where Brain Activity Meets Spinal Alignment*
+## 🚀 Key Features
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform: Web](https://img.shields.io/badge/Platform-Web_Application-blue)](https://developer.mozilla.org/)
-[![Project-Type: Biomedical IoT](https://img.shields.io/badge/Type-Biomedical_Monitoring_Platform-green)](#)
+*   **Real-time Monitoring**: High-precision visualization of EEG signals and lumbar angles.
+*   **Unified Authentication**:
+    *   **First-Time Setup**: Guided registration for Name, Mobile, Email, and Age.
+    *   **Secure 6-Digit PIN**: streamlined access for subsequent logins with hashed PIN security.
+*   **Premium Aesthetics**:
+    *   **Green & Cyan Theme**: A high-contrast, premium interface designed for clinical environments.
+    *   **Glassmorphism & HUD Design**: Sleek, modern components with micro-animations.
+*   **Data Management**: HIPAA-ready data handling with structured session history and export features.
 
-<p align="center">
-  Intelligent EEG/Lumbar Monitoring & Visualization Dashboard
-</p>
+## 🛠️ Setup & Installation
 
----
+### Prerequisites
+*   Python 3.10+
+*   SQLite3
 
-## 📋 Overview
+### Installation
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/ManoMedEngg/GutAngle.git
+    cd GutAngle/python
+    ```
+2.  Install dependencies:
+    ```bash
+    pip install flask flask-cors werkzeug
+    ```
+3.  Initialize the database:
+    ```bash
+    python3 database.py
+    ```
+4.  Launch the application:
+    ```bash
+    python3 app.py
+    ```
 
-GutAngle is a **production-ready web-based neurophysiology platform** designed to visualize EEG and lumbar position signals in real time. It provides clinical-grade monitoring, data analysis, and accessibility features for older adults, all wrapped in a sophisticated dark-theme interface.
+## 🔐 Security & Personal ID
+Upon first-time entry, the system generates a unique **Personal ID** for the patient. Subsequent logins only require the user's **6-digit PIN**, ensuring both security and ease of use for clinical monitoring.
 
----
-
-## ✨ Key Features
-
-- 🖥️ **Interactive Dashboard** – Live EEG/Lumbar graphs, key metrics, and session controls in a unified view
-- 📊 **Signal Visualization** – Time‑series charts for EEG (4 channels) and lumbar position with configurable settings
-- 🕰️ **History Management** – Session logs, past recordings, and summary statistics for retrospective analysis
-- 🎨 **Customizable UI** – Dark theme with red accents, adjustable brightness, and 9 language options
-- ♿ **Accessibility Ready** – Larger fonts, high‑contrast design, voice‑control integration, and keyboard navigation
-- 🔒 **Secure Integration** – Supabase backend with user authentication and data encryption
-- 📱 **Responsive Design** – Optimized for desktop (1920×1080) with graceful adaptation to tablet and mobile
-- 🔔 **Alert System** – Real-time alerts with SMS & WhatsApp notifications for critical events
-
----
-
-## 🏗️ Architecture
-
-### Frontend Stack
-- **HTML5** – Semantic structure and accessibility
-- **CSS3** – Dark theme layout, responsive grid, and component styling
-- **JavaScript (ES6+)** – Dynamic data updates, charts, and interaction logic
-- **Chart.js** – Real-time data visualization
-- **Supabase JS** – Backend integration and real-time subscriptions
-
-### Backend Stack
-- **Supabase** – PostgreSQL database with Row Level Security
-- **Authentication** – User registration and JWT-based sessions
-- **Storage** – Secure file storage for session data
-- **Realtime** – WebSocket connections for live updates
-
-### Core Modules
-1. **Landing/Auth** – Multi-language support, login & signup flows
-2. **Dashboard** – Live monitoring, KPI cards, alerts panel
-3. **History** – Session listing, filtering, and detailed analysis
-4. **Settings** – Theme, language, alerts, accessibility, and integration
-5. **Patient Management** – Patient records and session assignment
+## 🎨 Theme
+The interface utilizes a sophisticated **Green (#00FF88)** and **Cyan (#00F2FF)** palette, optimized for professional medical dashboards.
 
 ---
-
-## 📁 Project Structure
-
-```text
-GutAngle/
-├── index.html              # Main HTML file
-├── style.css              # Landing & login page styles
-├── dashboard.css          # Dashboard-specific styles
-├── script.js              # Landing & login functionality
-├── dashboard.js           # Dashboard functionality
-├── database.js            # Supabase integration
-├── img/
-│   └── icon.png          # Project logo
-├── vdo/
-│   ├── bg.mp4            # Background video
-│   └── explain.mp4       # Demo video
-└── README.md             # Project documentation
+*Developed as part of the GutAngle IoMT wearable research project.*

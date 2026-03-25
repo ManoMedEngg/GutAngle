@@ -850,6 +850,28 @@ body {
     border: 2px solid blue;
 }
 
+.fake-top-btn {
+    position: fixed;
+    top: 20px;
+    left: 170px;
+    z-index: 100;
+    background: #111111;
+    border: 1px solid #ef4444;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fake-top-btn:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
 /* Additional landing page styles */
 .detailed-section {
     padding: 40px 20px;
