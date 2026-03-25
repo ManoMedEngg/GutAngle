@@ -11,7 +11,6 @@
 ## 🚀 Key Innovations 🌟
 
 ### 📱 Android-Native "Tile" Dashboard 📟
-- **Optimized for Infinix Hot 12 Play**: Tailored for 20.5:9 tall-aspect ratio displays 📏.
 - **Responsive Nexus Grid**: A stacked, touch-first architecture with **Bottom Navigation** for effortless one-handed control 🖐️.
 - **Real-time EGG Hardware Sync**: Calibrated ±0.8μV signal scaling for precise stomach activity visualization 📈.
 
