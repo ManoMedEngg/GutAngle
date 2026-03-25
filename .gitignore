@@ -1,0 +1,10 @@
+.buildozer/
+bin/
+*.pyc
+__pycache__/
+*.db
+.gradle/
+build/
+local.properties
+.idea/
+*.apk
