@@ -555,6 +555,25 @@ def verify_pin():
     return jsonify({'success': False, 'error': 'INCORRECT_IDENTITY_PIN'})
 
 
+@app.route('/verify_id', methods=['POST'])
+def verify_id():
+    """Verify the Personal ID (GUT-xxxxxx) for recovery."""
+    data = request.get_json(silent=True) or {}
+    entered_id = str(data.get('personal_id', '')).strip().upper()
+    
+    conn = get_db_connection()
+    user = conn.execute('SELECT * FROM users WHERE user_id = ?', (entered_id,)).fetchone()
+    conn.close()
+    
+    if user:
+        session['user_id'] = user['user_id']
+        session['user_name'] = user['full_name']
+        session['pin_verified'] = True
+        return jsonify({'success': True})
+        
+    return jsonify({'success': False, 'error': 'INVALID_PERSONAL_ID'})
+
+
 @app.route('/bluetooth')
 def bluetooth():
     """Bluetooth device scan screen"""

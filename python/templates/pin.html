@@ -104,12 +104,40 @@
             letter-spacing: 1px; z-index: 2;
         }
 
-        .decryption-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none; opacity: 0.2;
-            font-family: monospace; font-size: 10px; color: var(--accent-green);
-            overflow: hidden; line-height: 1;
+        .forgot-pin-link {
+            margin-top: 30px; font-size: 0.75rem; color: var(--accent-cyan);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+            opacity: 0.6; cursor: pointer; transition: all 0.3s; z-index: 2;
         }
+        .forgot-pin-link:hover { opacity: 1; text-shadow: 0 0 10px var(--accent-cyan); }
+
+        /* Recovery Overlay */
+        .recovery-overlay {
+            position: fixed; inset: 0; background: rgba(5, 5, 16, 0.95);
+            display: none; flex-direction: column; align-items: center;
+            justify-content: center; z-index: 10; backdrop-filter: blur(10px);
+        }
+        .recovery-card {
+            width: 100%; max-width: 400px; padding: 40px;
+            border: 1px solid var(--accent-green); background: rgba(0, 255, 136, 0.02);
+            text-align: center;
+        }
+        .recovery-input {
+            width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--accent-green);
+            padding: 15px; color: white; margin: 20px 0; font-family: inherit;
+            text-align: center; letter-spacing: 4px; text-transform: uppercase;
+        }
+        .btn-recover {
+            width: 100%; background: var(--accent-green); color: black;
+            border: none; padding: 15px; font-weight: 700; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .btn-cancel {
+            margin-top: 20px; color: var(--accent-cyan); cursor: pointer;
+            font-size: 0.7rem; text-transform: uppercase; opacity: 0.6;
+        }
+
+        .scan-line { }
     </style>
 </head>
 <body>
@@ -150,6 +178,19 @@
     </div>
 
     <div class="status-msg" id="pin-error"></div>
+    
+    <div class="forgot-pin-link" onclick="toggleRecovery(true)">Forgot PIN?</div>
+
+    <div class="recovery-overlay" id="recovery-overlay">
+        <div class="recovery-card">
+            <h2 style="color:white; margin-bottom:10px;">RECOVERY_PROTOCOL</h2>
+            <p style="color:var(--accent-cyan); font-size:0.7rem; opacity:0.8;">ENTER YOUR PERSONAL ID TO BYPASS PIN AUTH</p>
+            <input type="text" id="personal-id-input" class="recovery-input" placeholder="GUT-XXXXXX">
+            <button class="btn-recover" onclick="recoverAccess()">VERIFY_IDENTITY</button>
+            <div class="btn-cancel" onclick="toggleRecovery(false)">[ ABORT_RECOVERY ]</div>
+            <div id="recovery-error" style="margin-top:20px; color:#FF4D4D; font-size:0.7rem;"></div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -214,7 +255,49 @@ function submitPin() {
     });
 }
 
+function toggleRecovery(show) {
+    document.getElementById('recovery-overlay').style.display = show ? 'flex' : 'none';
+    if (!show) {
+        document.getElementById('recovery-error').textContent = '';
+        document.getElementById('personal-id-input').value = '';
+    }
+}
+
+function recoverAccess() {
+    const personalId = document.getElementById('personal-id-input').value.trim();
+    if (!personalId) {
+        document.getElementById('recovery-error').textContent = 'Personal ID Required';
+        return;
+    }
+
+    const errorEl = document.getElementById('recovery-error');
+    errorEl.textContent = 'Verifying ID...';
+    errorEl.style.color = 'var(--accent-cyan)';
+
+    fetch('/verify_id', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ personal_id: personalId })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            errorEl.textContent = 'Identity Verified. Access Granted.';
+            errorEl.style.color = '#00FF00';
+            setTimeout(() => { window.location.href = '/bluetooth'; }, 1000);
+        } else {
+            errorEl.textContent = 'Invalid Personal ID';
+            errorEl.style.color = '#FF4D4D';
+        }
+    });
+}
+
 document.addEventListener('keydown', function(e) {
+    if (document.getElementById('recovery-overlay').style.display === 'flex') {
+        if (e.key === 'Escape') toggleRecovery(false);
+        else if (e.key === 'Enter') recoverAccess();
+        return;
+    }
     if (e.key >= '0' && e.key <= '9') pressKey(e.key);
     else if (e.key === 'Backspace') deleteKey();
     else if (e.key === 'Enter') submitPin();

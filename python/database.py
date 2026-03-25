@@ -14,14 +14,14 @@ from datetime import datetime
 
 DATABASE = 'gutangle.db'
 
-if "HOME" in os.environ:
-    db_dir = os.environ["HOME"]
-    writable_db_path = join(db_dir, DATABASE)
-    if not os.path.exists(writable_db_path):
-        asset_db_path = join(dirname(__file__), DATABASE)
-        if os.path.exists(asset_db_path):
-            shutil.copy2(asset_db_path, writable_db_path)
-    DATABASE = writable_db_path
+# if "HOME" in os.environ:
+#     db_dir = os.environ["HOME"]
+#     writable_db_path = join(db_dir, DATABASE)
+#     if not os.path.exists(writable_db_path):
+#         asset_db_path = join(dirname(__file__), DATABASE)
+#         if os.path.exists(asset_db_path):
+#             shutil.copy2(asset_db_path, writable_db_path)
+#     DATABASE = writable_db_path
 
 def get_db_connection():
     """Get database connection"""
