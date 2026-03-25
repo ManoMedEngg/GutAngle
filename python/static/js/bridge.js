@@ -19,23 +19,31 @@ window.GutAngle = {
 window.onBluetoothData = function(rawLine) {
     if (!rawLine) return;
     
-    // Typical format: EGG1,EGG2,ACCX,ACCY,ACCZ,BENDING,RESP
+    // ESP32 Format: Stomach, Flex, Pitch(X), Roll(Y), Yaw(Z), BPM
     const parts = rawLine.trim().split(',');
-    if (parts.length < 5) return;
+    if (parts.length < 6) return;
 
-    const timestamp = Date.now();
     const data = {
-        egg1: parseFloat(parts[0]) || 0,
-        egg2: parseFloat(parts[1]) || 0,
-        accX: parseFloat(parts[2]) || 0,
-        accY: parseFloat(parts[3]) || 0,
-        accZ: parseFloat(parts[4]) || 0,
-        bending: parseFloat(parts[5]) || 0,
-        resp: parseFloat(parts[6]) || 0
+        stomach: parseFloat(parts[0]) || 0,
+        flex: parseFloat(parts[1]) || 0,
+        lumbarX: parseFloat(parts[2]) || 0,
+        lumbarY: parseFloat(parts[3]) || 0,
+        lumbarZ: parseFloat(parts[4]) || 0,
+        bpm: parseFloat(parts[5]) || 0
     };
 
     // Update Global State
     window.GutAngle.data = data;
+
+    // Monitor for Alerts
+    if (data.bpm > 100 || data.flex > 45) {
+        if (window.Android && window.Android.playAlert) {
+            window.Android.playAlert();
+        }
+        if (window.Android && window.Android.showNotification) {
+            window.Android.showNotification("GUTANGLE ALERT", `Warning: ${data.bpm > 100 ? 'High BPM' : 'Abnormal Spine Angle'}`);
+        }
+    }
 
     // Trigger UI Update
     if (window.updateDashboardUI) {
@@ -70,23 +78,10 @@ window.sendToBelt = function(command) {
     }
 };
 
-// Simulation Layer for Demo/Local Testing
+// Simulation Layer - DISABLED per user request (Only real ESP32 data should plot)
+/*
 if (!window.AndroidBluetooth) {
-    console.log("GUTANGLE: Simulation Mode Active");
-    let phase = 0;
-    setInterval(() => {
-        phase += 0.1;
-        const egg1 = 400 + Math.sin(phase) * 100 + (Math.random() * 20);
-        const egg2 = 380 + Math.cos(phase * 0.8) * 120 + (Math.random() * 20);
-        const accX = Math.sin(phase * 0.5) * 0.5;
-        const accY = Math.cos(phase * 0.3) * 0.8;
-        const accZ = 0.9 + Math.sin(phase * 0.2) * 0.1;
-        const bending = 15 + Math.sin(phase * 0.4) * 10;
-        const resp = 14 + Math.sin(phase * 0.2) * 4;
-
-        // Simulate CSV packet from ESP32
-        const mockPacket = `${egg1},${egg2},${accX},${accY},${accZ},${bending},${resp}`;
-        window.onBluetoothData(mockPacket);
-    }, 100); // 10Hz simulation
+    console.log("GUTANGLE: Simulation Mode Available but Inactive");
 }
+*/
 

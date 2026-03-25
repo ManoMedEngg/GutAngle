@@ -131,6 +131,7 @@
         </div>
 
         <button id="scan-btn" class="btn-primary" onclick="startScan()">INITIATE_SCAN</button>
+        <button id="bypass-btn" onclick="bypassSync()" style="margin-top: 20px; background: none; border: 1px solid rgba(0, 242, 255, 0.3); color: #00F2FF; padding: 10px 25px; border-radius: 4px; font-size: 0.7rem; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease;">BYPASS_SYNC (DEV_MODE)</button>
     </div>
 
     <script>
@@ -185,7 +186,7 @@
 
         function showDemoDevices() {
             const demo = [
-                { name: 'GUTBELT_PRO_X1', address: 'A8:23:C9:11:00:FF' },
+                { name: 'GUTANGLE_BELT', address: 'D4:E9:F4:A8:9C:0E' },
                 { name: 'GA_HARNESS_BETA', address: 'FF:00:AA:BB:CC:DD' }
             ];
             const list = document.getElementById('device-list');
@@ -203,6 +204,10 @@
                 card.onclick = () => connectDevice(dev.address, dev.name, card);
                 list.appendChild(card);
             });
+        }
+
+        function bypassSync() {
+            window.location.href = '/dashboard';
         }
 
         function connectDevice(address, name, card) {

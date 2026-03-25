@@ -629,16 +629,10 @@ def belt_stream():
                 line = belt_data_queue.get(timeout=0.3)
                 yield f'data: {line}\n\n'
             except queue.Empty:
-                # Demo simulation when no real belt is connected
-                phase[0] += 0.12
-                p = phase[0]
-                egg  = round(300 + 150 * math.sin(p * 0.8) + (hash(str(p)) % 40 - 20), 2)
-                resp = round(15  + 5   * math.sin(p * 0.3), 2)
-                bend = round(18  + 10  * math.sin(p * 0.5), 2)
-                ax   = round(0.1 * math.sin(p), 3)
-                ay   = round(0.05 * math.cos(p * 1.3), 3)
-                az   = round(1.0 + 0.05 * math.sin(p * 2), 3)
-                yield f'data: {egg},{resp},{bend},{ax},{ay},{az}\n\n'
+                # Simulation disabled per user request
+                # yield f'data: 0,0,0,0,0,0\n\n' 
+                time.sleep(0.5)
+                continue
     return Response(generate(), mimetype='text/event-stream',
                     headers={'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no'})
 

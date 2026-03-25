@@ -59,22 +59,24 @@ function initCharts() {
 window.updateDashboardUI = function(data) {
     if (!eegChart) return;
 
-    // Update Chart
-    eegChart.data.datasets[0].data.push(data.egg1);
+    // Update Chart (Stomach Activity / EGG)
+    eegChart.data.datasets[0].data.push(data.stomach);
     eegChart.data.datasets[0].data.shift();
     eegChart.update('none');
 
     // Update Raw Metrics
-    updateMetric('egg-rms-val', Math.abs(data.egg1).toFixed(2));
-    updateMetric('resp-val', Math.abs(data.resp).toFixed(0));
-    updateMetric('lumbar-angle-val', data.bending.toFixed(1));
+    updateMetric('egg-rms-val', Math.abs(data.stomach).toFixed(2));
+    updateMetric('resp-val', Math.abs(data.bpm).toFixed(0));
+    updateMetric('lumbar-angle-val', data.flex.toFixed(1));
     
     // Animate Spine
-    updateSpine(data.bending);
+    // We use lumbarX (Pitch) as the primary visual tilt, 
+    // but the bending metric shows the Flex sensor value.
+    updateSpine(data.lumbarX);
 
     // Alert Logic
-    if (data.bending > 30) {
-        addEvent('CRITICAL', 'Hyper-flexion detected');
+    if (data.flex > 30 || Math.abs(data.lumbarX) > 45) {
+        addEvent('CRITICAL', 'Hyper-flexion or Poor Posture detected');
         updateMetric('alert-val', '1', '#FF003C');
     } else {
         updateMetric('alert-val', '0', 'white');

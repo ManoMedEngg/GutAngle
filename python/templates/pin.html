@@ -137,7 +137,29 @@
             font-size: 0.7rem; text-transform: uppercase; opacity: 0.6;
         }
 
-        .scan-line { }
+        .decryption-bg {
+            position: absolute;
+            inset: 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            line-height: 1.2;
+            letter-spacing: 3px;
+            color: var(--accent-green);
+            opacity: 0.05;
+            word-break: break-all;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+            -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
     </style>
 </head>
 <body>
@@ -199,9 +221,16 @@ const MAX = 6;
 
 // Create background code matrix
 const bg = document.getElementById('decryption-bg');
-let matrixText = '';
-for(let i=0; i<1000; i++) matrixText += Math.random().toString(36).substring(2, 12) + ' ';
-bg.textContent = matrixText;
+function updateMatrix() {
+    let matrixText = '';
+    for(let i=0; i<350; i++) {
+        let len = Math.floor(Math.random() * 6) + 3;
+        matrixText += Math.random().toString(36).substring(2, 2 + len) + ' '.repeat(Math.floor(Math.random() * 2) + 1);
+    }
+    bg.textContent = matrixText;
+}
+updateMatrix();
+setInterval(updateMatrix, 150); // Glitch effect
 
 function pressKey(digit) {
     if (pin.length >= MAX) return;

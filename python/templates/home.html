@@ -192,18 +192,18 @@
             if (!waveChart) return;
             
             // Update Center
-            document.getElementById('bend-val').textContent = data.bending.toFixed(1);
-            document.getElementById('egg-val').innerHTML = `${Math.abs(data.egg1).toFixed(2)} <small>mV</small>`;
-            document.getElementById('resp-val').innerHTML = `${Math.abs(data.resp).toFixed(0)} <small>rpm</small>`;
+            document.getElementById('bend-val').textContent = data.flex.toFixed(1);
+            document.getElementById('egg-val').innerHTML = `${Math.abs(data.stomach).toFixed(2)} <small>μV</small>`;
+            document.getElementById('resp-val').innerHTML = `${Math.abs(data.bpm).toFixed(0)} <small>bpm</small>`;
             
             // Update Wave
-            waveChart.data.datasets[0].data.push(data.egg1);
+            waveChart.data.datasets[0].data.push(data.stomach);
             waveChart.data.datasets[0].data.shift();
             waveChart.update('none');
 
             // Status Logic
             const status = document.getElementById('tilt-status');
-            if (data.bending > 30) {
+            if (data.flex > 30) {
                 status.textContent = 'CRITICAL_TILT';
                 status.style.color = '#FF003C';
             } else {
