@@ -119,12 +119,9 @@ function triggerDownload() {
     const toast = document.getElementById('download-toast');
     toast.style.display = 'block';
 
-    const link = document.createElement('a');
-    link.href = 'apk/GutAngle_Monitor.apk';
-    link.download = 'GutAngle_Monitor.apk';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Redirect to Google Drive folder
+    const driveLink = 'https://drive.google.com/drive/folders/1sCZWGTOVisNZXRqbuj7JPTC5s8uiKrIi?usp=sharing';
+    window.open(driveLink, '_blank');
 
     setTimeout(() => {
         toast.style.opacity = '0';
