@@ -1,7 +1,5 @@
 # Large Files (Exceeding GitHub's 100MB limit)
 website/apk/GutAngle_Monitor.apk
-GutAngle_Project/Dataset/Spainal_dataset/gutANGLE - Mano_Spinal_Cord_Data.csv
-GutAngle_Project/Dataset/Spainal_dataset/gutANGLE.xlsx
 
 # Artifacts
 .gemini/
