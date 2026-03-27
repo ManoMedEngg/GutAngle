@@ -1,3 +1,4 @@
+# Build and temporary files
 .buildozer/
 bin/
 *.pyc
@@ -8,3 +9,23 @@ build/
 local.properties
 .idea/
 *.apk
+*.ap_
+*.dex
+*.class
+gen/
+
+# Large Files (Exceeding GitHub's 100MB limit)
+apk/GutAngle_Monitor.apk
+
+# Python Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Artifacts
+.gemini/
+
+# OS
+.DS_Store
+Thumbs.db

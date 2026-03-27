@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GutAngle_Monitor - Enter PIN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .pin-wrapper {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; min-height: 100vh; 
+            padding: calc(var(--safe-top) + 20px) 20px calc(var(--safe-bottom) + 20px) 20px;
+            position: relative; overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .security-header {
+            text-align: center; margin-bottom: 30px; z-index: 2;
+        }
+
+        .main-icon-container {
+            width: clamp(120px, 30vw, 180px); 
+            height: clamp(120px, 30vw, 180px); 
+            margin: 0 auto 20px;
+            position: relative; padding: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, transparent 70%);
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        .main-icon {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 50%; border: 2px solid var(--accent-green);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .security-title {
+            font-size: var(--font-lg); font-weight: 800; letter-spacing: 2px;
+            color: white; margin: 0; text-transform: uppercase;
+        }
+
+        .security-subtitle {
+            font-size: var(--font-xs); color: var(--accent-cyan);
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-top: 8px; opacity: 0.8;
+        }
+
+        .pin-display {
+            display: flex; gap: clamp(10px, 4vw, 20px); margin-bottom: 40px; z-index: 2;
+        }
+
+        .pin-slot {
+            width: 16px; height: 16px; border-radius: 50%;
+            border: 2px solid var(--accent-green);
+            background: rgba(0, 255, 136, 0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .pin-slot.filled {
+            background: var(--accent-green);
+            box-shadow: 0 0 15px var(--accent-green);
+            transform: scale(1.3);
+        }
+
+        .keypad-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, min(25vw, 90px));
+            gap: 20px; z-index: 2;
+        }
+
+        .key-btn {
+            height: min(25vw, 90px); 
+            display: flex; align-items: center;
+            justify-content: center; font-size: var(--font-lg); font-weight: 400;
+            color: white; cursor: pointer; transition: all 0.2s;
+            user-select: none; position: relative;
+        }
+
+        .key-btn::before {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%; transition: all 0.2s;
+        }
+
+        .key-btn:hover::before {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .key-btn:active { transform: scale(0.9); }
+        .key-btn:active::before { background: var(--accent-green); box-shadow: 0 0 30px var(--accent-green); }
+
+        .key-val { z-index: 1; }
+
+        .key-btn.action { color: var(--accent-green); font-size: var(--font-md); }
+        
+        .status-msg {
+            height: 24px; color: #FF4D4D; font-size: var(--font-xs);
+            margin-top: 25px; text-transform: uppercase;
+            letter-spacing: 1px; z-index: 2;
+        }
+
+        .forgot-pin-link {
+            margin-top: 25px; font-size: var(--font-xs); color: var(--accent-cyan);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+            opacity: 0.7; cursor: pointer; transition: all 0.3s; z-index: 2;
+        }
+
+        /* Recovery Overlay */
+        .recovery-overlay {
+            position: fixed; inset: 0; background: rgba(5, 5, 16, 0.98);
+            display: none; flex-direction: column; align-items: center;
+            justify-content: center; z-index: 10; backdrop-filter: blur(15px);
+            padding: 20px;
+        }
+        .recovery-card {
+            width: 100%; max-width: 400px; padding: 30px 20px;
+            border: 1px solid var(--accent-green); background: rgba(0, 255, 136, 0.02);
+            text-align: center; border-radius: 12px;
+        }
+        .recovery-input {
+            width: 100%; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--accent-green);
+            padding: 16px; color: white; margin: 25px 0; font-family: inherit;
+            text-align: center; letter-spacing: 4px; text-transform: uppercase;
+            border-radius: 8px; font-size: var(--font-md); box-sizing: border-box;
+        }
+        .btn-recover {
+            width: 100%; background: var(--accent-green); color: black;
+            border: none; padding: 18px; font-weight: 800; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;
+            font-size: var(--font-sm);
+        }
+        .btn-cancel {
+            margin-top: 20px; color: var(--accent-cyan); cursor: pointer;
+            font-size: var(--font-xs); text-transform: uppercase; opacity: 0.6;
+        }
+
+        .decryption-bg {
+            position: absolute; inset: 0; font-family: monospace; font-size: 10px;
+            color: var(--accent-green); opacity: 0.08; word-break: break-all;
+            pointer-events: none; user-select: none; z-index: 1;
+            mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+    </style>
+</head>
+<body>
+<div class="pin-wrapper">
+    <div class="decryption-bg" id="decryption-bg"></div>
+    <div class="scan-line"></div>
+    
+    <div class="security-header">
+        <div class="main-icon-container">
+            <img src="{{ url_for('static', filename='img/icon.png') }}" alt="GutAngle" class="main-icon">
+        </div>
+        <h1 class="security-title glow-text">GUTANGLE</h1>
+        <div class="security-subtitle">Secure Access Point</div>
+    </div>
+
+    <div class="pin-display" id="pin-display">
+        <div class="pin-slot" id="d0"></div>
+        <div class="pin-slot" id="d1"></div>
+        <div class="pin-slot" id="d2"></div>
+        <div class="pin-slot" id="d3"></div>
+        <div class="pin-slot" id="d4"></div>
+        <div class="pin-slot" id="d5"></div>
+    </div>
+
+    <div class="keypad-grid">
+        <div class="key-btn" onclick="pressKey('1')"><span class="key-val">1</span></div>
+        <div class="key-btn" onclick="pressKey('2')"><span class="key-val">2</span></div>
+        <div class="key-btn" onclick="pressKey('3')"><span class="key-val">3</span></div>
+        <div class="key-btn" onclick="pressKey('4')"><span class="key-val">4</span></div>
+        <div class="key-btn" onclick="pressKey('5')"><span class="key-val">5</span></div>
+        <div class="key-btn" onclick="pressKey('6')"><span class="key-val">6</span></div>
+        <div class="key-btn" onclick="pressKey('7')"><span class="key-val">7</span></div>
+        <div class="key-btn" onclick="pressKey('8')"><span class="key-val">8</span></div>
+        <div class="key-btn" onclick="pressKey('9')"><span class="key-val">9</span></div>
+        <div class="key-btn action" onclick="deleteKey()"><i class="fas fa-backspace key-val"></i></div>
+        <div class="key-btn" onclick="pressKey('0')"><span class="key-val">0</span></div>
+        <div class="key-btn action" onclick="submitPin()"><i class="fas fa-fingerprint key-val"></i></div>
+    </div>
+
+    <div class="status-msg" id="pin-error"></div>
+    
+    <div class="forgot-pin-link" onclick="toggleRecovery(true)">Forgot PIN?</div>
+
+    <div class="recovery-overlay" id="recovery-overlay">
+        <div class="recovery-card">
+            <h2 style="color:white; margin-bottom:10px;">RECOVERY_PROTOCOL</h2>
+            <p style="color:var(--accent-cyan); font-size:0.7rem; opacity:0.8;">ENTER YOUR PERSONAL ID TO BYPASS PIN AUTH</p>
+            <input type="text" id="personal-id-input" class="recovery-input" placeholder="GUT-XXXXXX">
+            <button class="btn-recover" onclick="recoverAccess()">VERIFY_IDENTITY</button>
+            <div class="btn-cancel" onclick="toggleRecovery(false)">[ ABORT_RECOVERY ]</div>
+            <div id="recovery-error" style="margin-top:20px; color:#FF4D4D; font-size:0.7rem;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+let pin = '';
+const MAX = 6;
+
+// Create background code matrix
+const bg = document.getElementById('decryption-bg');
+function updateMatrix() {
+    let matrixText = '';
+    for(let i=0; i<350; i++) {
+        let len = Math.floor(Math.random() * 6) + 3;
+        matrixText += Math.random().toString(36).substring(2, 2 + len) + ' '.repeat(Math.floor(Math.random() * 2) + 1);
+    }
+    bg.textContent = matrixText;
+}
+updateMatrix();
+setInterval(updateMatrix, 150); // Glitch effect
+
+function pressKey(digit) {
+    if (pin.length >= MAX) return;
+    pin += digit;
+    updateDots();
+    if (pin.length === MAX) {
+        setTimeout(submitPin, 200);
+    }
+}
+
+function deleteKey() {
+    pin = pin.slice(0, -1);
+    updateDots();
+    document.getElementById('pin-error').textContent = '';
+}
+
+function updateDots() {
+    for (let i = 0; i < MAX; i++) {
+        document.getElementById('d' + i).classList.toggle('filled', i < pin.length);
+    }
+}
+
+function submitPin() {
+    if (pin.length < MAX) {
+        document.getElementById('pin-error').textContent = 'Enter 6 digits';
+        return;
+    }
+    
+    const errorEl = document.getElementById('pin-error');
+    errorEl.textContent = 'Authenticating...';
+    errorEl.style.color = 'var(--accent-cyan)';
+
+    fetch('/verify_pin', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ pin: pin })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            errorEl.textContent = 'Access Granted';
+            errorEl.style.color = '#00FF00';
+            setTimeout(() => { window.location.href = '/bluetooth'; }, 500);
+        } else {
+            errorEl.textContent = 'Identity Verification Failed';
+            errorEl.style.color = '#FF8800';
+            const display = document.getElementById('pin-display');
+            display.style.animation = 'shake 0.4s';
+            setTimeout(() => { display.style.animation = ''; pin = ''; updateDots(); }, 400);
+        }
+    });
+}
+
+function toggleRecovery(show) {
+    document.getElementById('recovery-overlay').style.display = show ? 'flex' : 'none';
+    if (!show) {
+        document.getElementById('recovery-error').textContent = '';
+        document.getElementById('personal-id-input').value = '';
+    }
+}
+
+function recoverAccess() {
+    const personalId = document.getElementById('personal-id-input').value.trim();
+    if (!personalId) {
+        document.getElementById('recovery-error').textContent = 'Personal ID Required';
+        return;
+    }
+
+    const errorEl = document.getElementById('recovery-error');
+    errorEl.textContent = 'Verifying ID...';
+    errorEl.style.color = 'var(--accent-cyan)';
+
+    fetch('/verify_id', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ personal_id: personalId })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.success) {
+            errorEl.textContent = 'Identity Verified. Access Granted.';
+            errorEl.style.color = '#00FF00';
+            setTimeout(() => { window.location.href = '/bluetooth'; }, 1000);
+        } else {
+            errorEl.textContent = 'Invalid Personal ID';
+            errorEl.style.color = '#FF4D4D';
+        }
+    });
+}
+
+document.addEventListener('keydown', function(e) {
+    if (document.getElementById('recovery-overlay').style.display === 'flex') {
+        if (e.key === 'Escape') toggleRecovery(false);
+        else if (e.key === 'Enter') recoverAccess();
+        return;
+    }
+    if (e.key >= '0' && e.key <= '9') pressKey(e.key);
+    else if (e.key === 'Backspace') deleteKey();
+    else if (e.key === 'Enter') submitPin();
+});
+</script>
+</body>
+</html>

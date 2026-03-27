@@ -1,0 +1,500 @@
+Transforming kotlinx-coroutines-android-1.6.4.jar (org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4) with JetifyTransform
+Transforming kotlinx-coroutines-android-1.6.4.jar (org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4) with IdentityTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with JetifyTransform
+Transforming kotlin-stdlib-jdk8-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0) with IdentityTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with JetifyTransform
+Transforming kotlin-stdlib-jdk7-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0) with IdentityTransform
+Transforming kotlin-stdlib-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.0) with JetifyTransform
+Transforming kotlin-stdlib-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.0) with IdentityTransform
+Transforming error_prone_annotations-2.15.0.jar (com.google.errorprone:error_prone_annotations:2.15.0) with JetifyTransform
+Transforming error_prone_annotations-2.15.0.jar (com.google.errorprone:error_prone_annotations:2.15.0) with IdentityTransform
+Transforming constraintlayout-core-1.0.4.jar (androidx.constraintlayout:constraintlayout-core:1.0.4) with JetifyTransform
+Transforming constraintlayout-core-1.0.4.jar (androidx.constraintlayout:constraintlayout-core:1.0.4) with IdentityTransform
+Transforming kotlin-stdlib-common-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-common:1.9.0) with JetifyTransform
+Transforming kotlin-stdlib-common-1.9.0.jar (org.jetbrains.kotlin:kotlin-stdlib-common:1.9.0) with IdentityTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with JetifyTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with IdentityTransform
+Transforming listenablefuture-1.0.jar (com.google.guava:listenablefuture:1.0) with JetifyTransform
+Transforming listenablefuture-1.0.jar (com.google.guava:listenablefuture:1.0) with IdentityTransform
+Caching disabled for task ':app:mergeDebugJavaResource' because:
+  Build cache is disabled
+Task ':app:mergeDebugJavaResource' is not up-to-date because:
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/1H8GqIkwmJxuOFfESCIb1ZsiYQA= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/3DUPCqSXGpkuy9EkSXsbFLHFhIk= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/5WKYYJg6hYP9eGZVA9xjAay5n2A= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/6f+vUioq2bUnPhTRsMqkvTp4+NE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/7ZXKybHQHzgtb9n0rSjgI_oZnY4= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/9atsmp13q8eCZMDxLM4ty_bES6U= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/9Dt9EkzdzQCURTKWTCsHRcXynjg= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/_gGf5jFYeJxZUgKigtuaTuym5bE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/a5HA7Nq3hQqSOhlNwfK_dnB5Ylg= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/AeHKdLgrLDNOeWDevjbbEUWVv3Q= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/AOfM28jatECjLYrpvZAX9fwFllA= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/BNXxL12eXGVtId86uufOUA_i_T4= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/bqawmP1JT2h9N5i+W9tPolCvT1o= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/c2FnWLRbR600HeOJXcrxvkHczbI= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/cCGzf4AGrpzLKau0ob5BAxRjdmk= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/cgqnv89xIzeF830+90u5DtJIg1g= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/CqhIaFXz+u7IX5eC6GKutlD3f94= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/CqRHc08pEa0kMiE8dNRU_HQA+3E= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/CyuuVbU00VyI4ol13IQDT5wmBDY= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/D3rJ+tteqeIdNnY3E4TZUEi1YZE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/DhvcuW8mS_wYtmns2FVYPNwm22w= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/e15x+gyilbJt6JyrjWLrE+sO1X4= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/EBEZQVkWWxabmYy2QA9FZyU50rI= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/EH9qDyI88gN7k44AT4D1MTbG_jA= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/eJFled1Z6EitwpD8+SgqQyJefvI= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/f57LTOt8Duk6maTEqhw12IxsZb8= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/fUAXrxlcokcb9kyougBJ2izv5rQ= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/GfoFwbXwK8ATNHP4XiqGe8LS0KE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/hc3LXRySumkldnwdDwSjQfEO43g= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/hIAJ0HiWzOOcSQi9aP64aGXJWpY= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/HoewLhEAEfFEGqOp5WlfqFNwLwE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/HS5c5MuWu47kqGuxfv1Artn+OC8= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/i666XnmkfTEoxwRzI0p4m77N1EI= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/IydhWeejtPinXcXJzw20GkprOfA= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/j1FfJJ+N1uMI3XYdW9ZbjkTL840= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/jg_YPN8vVsVctemC7rJix9Q1r+Q= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/KTPlJ38lcvlcUdQNry9IhM_wK7w= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/lAIVeL6oKQBnSyzee+fSXKPPG0s= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/MEItZAt8vwHnKhDuZl91VgEWWG8= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/MJ6gpk07J5cP7rCbq05bl7b_5jE= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/nQdkTG2ykVpG9l4unTIXk8AeYWk= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/NZ5P9l6r7559O_TcSc1K8NTYj3A= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/O1VWW1hrGkW0uJ9AtypOo7TPmVc= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ojnOG9WNQeXdII9LJouTZusQVG4= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/OyQCrp+jfMXdJTf0DyC8W3seYac= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/p4MmZvmvD7tJmBeRyy0__wDCeR4= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/pLKWz3PtDjLKk4riiDuwcuh0tBM= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Q8bkshMlfe99GNXgcy8NtCXf3a0= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/qBsfGKVheuqj+THJ5btiLxttggo= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/qC+w4j29qG2cH3QytuvTZXoA0Us= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/QC_d3OYZtupWjVTeboYgTB05JNA= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/QCzevXXePslo9Kd6OxUdsc48dtc= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/qqbEyWWYsGiwbd96BD15g8ZfgSw= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/r2i7Ybh1HC59OwDUi4eOCdDC9G0= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/SQBKN7EFIaRBen6Tv9A8_H4TKB0= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/u_F2dMF3vUceyshR_p2YKYf1xFk= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/UfLo38Hr4xL0mHizBJr0joJK1Ko= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/vuzawFIfvi4uMpEuUeEpJzHuJ1A= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/vwd5WC2ilxT+TZJc2dH5am9SgQk= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/xIFN7mS6YrfTFU5JSlOPOcodj18= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/yAlHzT8985J_14g8MlfB2j6G67Y= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/yI4eK0Xup_gzZYa66hDgW1ZfdCs= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Yrg+Umo+r3j8uq+KMEav+gMvLas= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/YsvYwVn5kZL5fF+Kco2rcCpm52w= has been removed.
+  Output property 'cacheDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/z1bfUHC2Tq3a5cfUwxSgJ3Mh9ks= has been removed.
+  Output property 'outputFile' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/merged_java_res/debug/base.jar has been removed.
+The input changes require a full rebuild for incremental task ':app:mergeDebugJavaResource'.
+Watching 456 directories to track changes
+Watching 456 directories to track changes
+
+> Task :app:mergeProjectDexDebug
+Watching 465 directories to track changes
+Caching disabled for task ':app:mergeProjectDexDebug' because:
+  Build cache is disabled
+Task ':app:mergeProjectDexDebug' is not up-to-date because:
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/1 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/10 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/11 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/12 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/13 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/14 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/15 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/2 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/3 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/4 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/5 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/6 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/7 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/8 has been removed.
+  Output property 'outputDir' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/9 has been removed.
+The input changes require a full rebuild for incremental task ':app:mergeProjectDexDebug'.
+Watching 464 directories to track changes
+Merging to '/home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/7' with D8 from all or a subset of dex files in /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out, and from all global synthetics files in 
+Merging to '/home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0' with D8 from all or a subset of dex files in /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out/1ab6f36da81c2a90b85457af38453537670c477d192393ae3a29fa05ec8f06a6_0.jar, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/project_dex_archive/debug/out/1ab6f36da81c2a90b85457af38453537670c477d192393ae3a29fa05ec8f06a6_1.jar, and from all global synthetics files in 
+Watching 481 directories to track changes
+
+> Task :app:mergeDebugJavaResource
+Watching 482 directories to track changes
+Watching 483 directories to track changes
+Resolve mutations for :app:packageDebug (Thread[#778,Execution worker Thread 2,5,main]) started.
+:app:packageDebug (Thread[#778,Execution worker Thread 2,5,main]) started.
+
+> Task :app:packageDebug
+Watching 484 directories to track changes
+Watching 485 directories to track changes
+Caching disabled for task ':app:packageDebug' because:
+  Build cache is disabled
+Task ':app:packageDebug' is not up-to-date because:
+  Output property 'ideModelOutputFile' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/outputs/apk/debug/output-metadata.json has been removed.
+  Output property 'incrementalFolder' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/packageDebug/tmp has been removed.
+  Output property 'incrementalFolder' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/incremental/packageDebug/tmp/debug has been removed.
+  Output property 'outputDirectory' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/outputs/apk/debug has been removed.
+The input changes require a full rebuild for incremental task ':app:packageDebug'.
+Watching 484 directories to track changes
+Watching 483 directories to track changes
+Watching 484 directories to track changes
+Watching 487 directories to track changes
+Resolve mutations for :app:createDebugApkListingFileRedirect (Thread[#778,Execution worker Thread 2,5,main]) started.
+:app:createDebugApkListingFileRedirect (Thread[#778,Execution worker Thread 2,5,main]) started.
+
+> Task :app:createDebugApkListingFileRedirect
+Watching 487 directories to track changes
+Caching disabled for task ':app:createDebugApkListingFileRedirect' because:
+  Build cache is disabled
+Task ':app:createDebugApkListingFileRedirect' is not up-to-date because:
+  Output property 'redirectFile' file /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/apk_ide_redirect_file/debug/redirect.txt has been removed.
+Watching 487 directories to track changes
+Watching 488 directories to track changes
+Resolve mutations for :app:installDebug (Thread[#777,Execution worker,5,main]) started.
+:app:installDebug (Thread[#777,Execution worker,5,main]) started.
+
+> Task :app:installDebug
+Caching disabled for task ':app:installDebug' because:
+  Build cache is disabled
+Task ':app:installDebug' is not up-to-date because:
+  Task.upToDateWhen is false.
+Installing APK 'app-debug.apk' on 'Infinix X6816C - 11' for :app:debug
+
+AAPT2 aapt2-8.2.1-10154469-linux Daemon #0: shutdown
+
+> Task :app:installDebug FAILED
+Unable to install /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/outputs/apk/debug/app-debug.apk
+com.android.ddmlib.InstallException
+	at com.android.ddmlib.internal.DeviceImpl.installRemotePackage(DeviceImpl.java:1415)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1235)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1211)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1200)
+	at com.android.build.gradle.internal.testing.ConnectedDevice.installPackage(ConnectedDevice.java:128)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.install(InstallVariantTask.java:229)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.lambda$doTaskAction$1(InstallVariantTask.java:110)
+	at com.android.builder.testing.api.DeviceProvider.use(DeviceProvider.java:55)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.doTaskAction(InstallVariantTask.java:108)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:66)
+	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
+	at java.base@21.0.11-ea/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base@21.0.11-ea/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+	at java.base@21.0.11-ea/java.util.Optional.orElseGet(Optional.java:364)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:77)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:38)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:94)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:49)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+	at java.base@21.0.11-ea/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base@21.0.11-ea/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base@21.0.11-ea/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:731)
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:511)
+	at com.android.ddmlib.internal.DeviceImpl.executeShellCommand(DeviceImpl.java:759)
+	at com.android.ddmlib.internal.DeviceImpl.installRemotePackage(DeviceImpl.java:1406)
+	... 131 more
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:installDebug'.
+> java.util.concurrent.ExecutionException: com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException
+
+* Try:
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:installDebug'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:149)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:147)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.internal.UncheckedException: java.util.concurrent.ExecutionException: com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:68)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:41)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:128)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:248)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:77)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:38)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:94)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:49)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:81)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: java.util.concurrent.ExecutionException: com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException
+	at com.android.builder.testing.api.DeviceProvider.use(DeviceProvider.java:57)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.doTaskAction(InstallVariantTask.java:108)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:66)
+	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+	at com.android.build.gradle.internal.tasks.NonIncrementalTask.taskAction(NonIncrementalTask.kt:97)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	... 113 more
+Caused by: com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException
+	at com.android.build.gradle.internal.testing.ConnectedDevice.installPackage(ConnectedDevice.java:134)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.install(InstallVariantTask.java:229)
+	at com.android.build.gradle.internal.tasks.InstallVariantTask.lambda$doTaskAction$1(InstallVariantTask.java:110)
+	at com.android.builder.testing.api.DeviceProvider.use(DeviceProvider.java:55)
+	... 119 more
+Caused by: com.android.ddmlib.InstallException
+	at com.android.ddmlib.internal.DeviceImpl.installRemotePackage(DeviceImpl.java:1415)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1235)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1211)
+	at com.android.ddmlib.internal.DeviceImpl.installPackage(DeviceImpl.java:1200)
+	at com.android.build.gradle.internal.testing.ConnectedDevice.installPackage(ConnectedDevice.java:128)
+	... 122 more
+Caused by: com.android.ddmlib.ShellCommandUnresponsiveException
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:731)
+	at com.android.ddmlib.AdbHelper.executeRemoteCommand(AdbHelper.java:511)
+	at com.android.ddmlib.internal.DeviceImpl.executeShellCommand(DeviceImpl.java:759)
+	at com.android.ddmlib.internal.DeviceImpl.installRemotePackage(DeviceImpl.java:1406)
+	... 126 more
+
+
+BUILD FAILED in 5m 44s
+47 actionable tasks: 46 executed, 1 up-to-date
+Watching 488 directories to track changes

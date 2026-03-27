@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - GUTANGLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="view-dashboard">
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-profile">
+                        <div class="avatar">
+                            <img src="{{ url_for('static', filename='img/icon.png') }}" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <h4>{{ session.get('user_name', 'User') }}</h4>
+                            <span class="user-role">Clinician</span>
+                        </div>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="nav-item"><a href="{{ url_for('dashboard') }}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                        <li class="nav-item"><a href="{{ url_for('history') }}"><i class="fas fa-history"></i><span>History</span></a></li>
+                        <li class="nav-item active"><a href="{{ url_for('settings') }}"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+                    </ul>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="logout-btn" onclick="window.location.href='{{ url_for('logout') }}'">
+                        <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="top-bar">
+                    <div class="top-left">
+                        <h3>Settings</h3>
+                    </div>
+                </header>
+                <div class="dashboard-content">
+                    <div class="page-header">
+                        <h2><i class="fas fa-cog"></i> Settings</h2>
+                    </div>
+                    <div class="settings-container">
+                        <div class="settings-content">
+                            <div class="settings-tab active">
+                                <h3>Account Settings</h3>
+                                <div class="setting-group">
+                                    <label>Email</label>
+                                    <input type="text" value="{{ session.get('user_email', '') }}" readonly style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: white; border: 1px solid rgba(255,255,255,0.2); width: 100%;">
+                                </div>
+                                <div class="setting-group">
+                                    <label>Name</label>
+                                    <input type="text" value="{{ session.get('user_name', '') }}" readonly style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: white; border: 1px solid rgba(255,255,255,0.2); width: 100%;">
+                                </div>
+                                <h3 style="margin-top: 40px;">Appearance</h3>
+                                <div class="setting-group">
+                                    <label>Theme</label>
+                                    <select style="padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white; width: 100%;">
+                                        <option value="dark" selected>Dark</option>
+                                        <option value="light">Light</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

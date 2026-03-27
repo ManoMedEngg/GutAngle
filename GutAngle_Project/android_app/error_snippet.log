@@ -1,0 +1,500 @@
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/cc93538c9476af68082aa271f4f1b662/transformed/lifecycle-viewmodel-2.6.1-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/cc93538c9476af68082aa271f4f1b662/transformed/lifecycle-viewmodel-2.6.1-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/cc93538c9476af68082aa271f4f1b662/transformed/lifecycle-viewmodel-2.6.1-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/cc93538c9476af68082aa271f4f1b662/transformed/lifecycle-viewmodel-2.6.1-runtime.jar'
+Transforming lifecycle-viewmodel-2.6.1.aar (androidx.lifecycle:lifecycle-viewmodel:2.6.1) with DexingNoClasspathTransform
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming lifecycle-runtime-2.6.1.aar (androidx.lifecycle:lifecycle-runtime:2.6.1) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/6787429479e17477b1796dabcab99a9b/transformed/lifecycle-runtime-2.6.1-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming lifecycle-viewmodel-savedstate-2.6.1.aar (androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.1) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/fac3e083f8631fa4deaee506dbd4692b/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar is not up-to-date because:
+  No history is available.
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming annotation-experimental-1.3.0.aar (androidx.annotation:annotation-experimental:1.3.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/af0b4a03d15f6eda486ab068990c30d6/transformed/jetified-annotation-experimental-1.3.0-runtime.jar'
+Transforming core-ktx-1.12.0.aar (androidx.core:core-ktx:1.12.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/e44ab450c5d38b5b784751cabc7f624a/transformed/jetified-core-ktx-1.12.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming MPAndroidChart-v3.1.0.aar (com.github.PhilJay:MPAndroidChart:v3.1.0) with DexingNoClasspathTransform
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming cursoradapter-1.0.0.aar (androidx.cursoradapter:cursoradapter:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar.
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/b5afcc25a09ff1d40ea24902e635bf25/transformed/jetified-MPAndroidChart-v3.1.0-runtime.jar'
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/566a93275467475009e8e395dabe5e3d/transformed/cursoradapter-1.0.0-runtime.jar'
+Transforming cursoradapter-1.0.0.aar (androidx.cursoradapter:cursoradapter:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/f255706604bca1ab2c094b626fb6c48d/transformed/jetified-resourceinspection-annotation-1.0.1.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/f255706604bca1ab2c094b626fb6c48d/transformed/jetified-resourceinspection-annotation-1.0.1.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/f255706604bca1ab2c094b626fb6c48d/transformed/jetified-resourceinspection-annotation-1.0.1.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/f255706604bca1ab2c094b626fb6c48d/transformed/jetified-resourceinspection-annotation-1.0.1.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming cardview-1.0.0.aar (androidx.cardview:cardview:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/3da8268418903a22df6574166099a463/transformed/cardview-1.0.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming versionedparcelable-1.1.1.aar (androidx.versionedparcelable:versionedparcelable:1.1.1) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/58a85ae96c1504c66f0d995fd889b7b4/transformed/versionedparcelable-1.1.1-runtime.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar because:
+  Build cache is disabled
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar is not up-to-date because:
+  No history is available.
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar'
+Transforming profileinstaller-1.3.0.aar (androidx.profileinstaller:profileinstaller:1.3.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/c8f3b748060b59a200cf9cd6c497c64f/transformed/jetified-profileinstaller-1.3.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming startup-runtime-1.1.1.aar (androidx.startup:startup-runtime:1.1.1) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/d766be2306991b64241a7807012c13b0/transformed/jetified-startup-runtime-1.1.1-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming tracing-1.0.0.aar (androidx.tracing:tracing:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/7ca6831ddd74094eadcc0503e1121476/transformed/jetified-tracing-1.0.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming interpolator-1.0.0.aar (androidx.interpolator:interpolator:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/c3cb360cc7626f9c3360d346dbb06050/transformed/interpolator-1.0.0-runtime.jar'
+Transforming interpolator-1.0.0.aar (androidx.interpolator:interpolator:1.0.0) with DexingNoClasspathTransform
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar is not up-to-date because:
+  No history is available.
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar.
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/213c3f00f603c928de45ba3356085a96/transformed/jetified-concurrent-futures-1.1.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/213c3f00f603c928de45ba3356085a96/transformed/jetified-concurrent-futures-1.1.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/213c3f00f603c928de45ba3356085a96/transformed/jetified-concurrent-futures-1.1.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/213c3f00f603c928de45ba3356085a96/transformed/jetified-concurrent-futures-1.1.0.jar'
+Transforming core-runtime-2.2.0.aar (androidx.arch.core:core-runtime:2.2.0) with DexingNoClasspathTransform
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/7bcc34dca2f52f859d304ed58aafaf47/transformed/core-runtime-2.2.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming documentfile-1.0.0.aar (androidx.documentfile:documentfile:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/451278153e0d893b7a1479a00ad15afc/transformed/documentfile-1.0.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming localbroadcastmanager-1.0.0.aar (androidx.localbroadcastmanager:localbroadcastmanager:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/a906ec2c65e2fe24ffb342b8741775d3/transformed/localbroadcastmanager-1.0.0-runtime.jar'
+Caching disabled for IdentityTransform: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar because:
+  Build cache is disabled
+IdentityTransform: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+Transforming print-1.0.0.aar (androidx.print:print:1.0.0) with DexingNoClasspathTransform
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar'
+INFO: D8: Stripped invalid locals information from 1 method.
+INFO: /home/manoj/.gradle/caches/transforms-3/11fbb9e95695c8b1d5e553a6f07e2887/transformed/print-1.0.0-runtime.jar: D8: Methods with invalid locals information:
+  void androidx.print.PrintHelper$PrintUriAdapter$1.onPostExecute(android.graphics.Bitmap)
+  Information in locals-table is invalid with respect to the stack map table. Local refers to non-present stack map type for register: 2 with constraint OBJECT.
+INFO: D8: Some warnings are typically a sign of using an outdated Java toolchain. To fix, recompile the source with an updated toolchain.
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/25e765d5adb74afa3eeda592b99541c3/transformed/jetified-annotation-jvm-1.6.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/25e765d5adb74afa3eeda592b99541c3/transformed/jetified-annotation-jvm-1.6.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/25e765d5adb74afa3eeda592b99541c3/transformed/jetified-annotation-jvm-1.6.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/25e765d5adb74afa3eeda592b99541c3/transformed/jetified-annotation-jvm-1.6.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/02e34ecf6b271713e21e453c0a1ef798/transformed/jetified-kotlinx-coroutines-android-1.6.4.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/02e34ecf6b271713e21e453c0a1ef798/transformed/jetified-kotlinx-coroutines-android-1.6.4.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/02e34ecf6b271713e21e453c0a1ef798/transformed/jetified-kotlinx-coroutines-android-1.6.4.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/02e34ecf6b271713e21e453c0a1ef798/transformed/jetified-kotlinx-coroutines-android-1.6.4.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b15dc718929bd700c324e4df08697935/transformed/jetified-kotlin-stdlib-jdk8-1.9.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b15dc718929bd700c324e4df08697935/transformed/jetified-kotlin-stdlib-jdk8-1.9.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/b15dc718929bd700c324e4df08697935/transformed/jetified-kotlin-stdlib-jdk8-1.9.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/b15dc718929bd700c324e4df08697935/transformed/jetified-kotlin-stdlib-jdk8-1.9.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/5e5392995c8e8a1bf303e9e0e2425876/transformed/jetified-kotlin-stdlib-jdk7-1.9.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/5e5392995c8e8a1bf303e9e0e2425876/transformed/jetified-kotlin-stdlib-jdk7-1.9.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/5e5392995c8e8a1bf303e9e0e2425876/transformed/jetified-kotlin-stdlib-jdk7-1.9.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/5e5392995c8e8a1bf303e9e0e2425876/transformed/jetified-kotlin-stdlib-jdk7-1.9.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6a0d2661fb15879d22adbaff4f46322c/transformed/jetified-kotlin-stdlib-1.9.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6a0d2661fb15879d22adbaff4f46322c/transformed/jetified-kotlin-stdlib-1.9.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6a0d2661fb15879d22adbaff4f46322c/transformed/jetified-kotlin-stdlib-1.9.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/6a0d2661fb15879d22adbaff4f46322c/transformed/jetified-kotlin-stdlib-1.9.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/90235e9b1165ec8bd7930e9eed3a957a/transformed/jetified-error_prone_annotations-2.15.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/90235e9b1165ec8bd7930e9eed3a957a/transformed/jetified-error_prone_annotations-2.15.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/90235e9b1165ec8bd7930e9eed3a957a/transformed/jetified-error_prone_annotations-2.15.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/90235e9b1165ec8bd7930e9eed3a957a/transformed/jetified-error_prone_annotations-2.15.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/2ac86e8db7a0ead334ddbd36cd21118c/transformed/jetified-constraintlayout-core-1.0.4.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/2ac86e8db7a0ead334ddbd36cd21118c/transformed/jetified-constraintlayout-core-1.0.4.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/2ac86e8db7a0ead334ddbd36cd21118c/transformed/jetified-constraintlayout-core-1.0.4.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/2ac86e8db7a0ead334ddbd36cd21118c/transformed/jetified-constraintlayout-core-1.0.4.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6f8a676ce814ea4b311745ee75b8b80e/transformed/jetified-kotlin-stdlib-common-1.9.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6f8a676ce814ea4b311745ee75b8b80e/transformed/jetified-kotlin-stdlib-common-1.9.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/6f8a676ce814ea4b311745ee75b8b80e/transformed/jetified-kotlin-stdlib-common-1.9.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/6f8a676ce814ea4b311745ee75b8b80e/transformed/jetified-kotlin-stdlib-common-1.9.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/0dec8b1de239c03afa95fdc724e16b21/transformed/jetified-annotations-13.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/0dec8b1de239c03afa95fdc724e16b21/transformed/jetified-annotations-13.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/0dec8b1de239c03afa95fdc724e16b21/transformed/jetified-annotations-13.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/0dec8b1de239c03afa95fdc724e16b21/transformed/jetified-annotations-13.0.jar'
+Caching disabled for DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e5d6bd94a6191e02cc768b64aef8c658/transformed/jetified-listenablefuture-1.0.jar because:
+  Build cache is disabled
+DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e5d6bd94a6191e02cc768b64aef8c658/transformed/jetified-listenablefuture-1.0.jar is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental DexingNoClasspathTransform: /home/manoj/.gradle/caches/transforms-3/e5d6bd94a6191e02cc768b64aef8c658/transformed/jetified-listenablefuture-1.0.jar.
+Running dexing transform non-incrementally for '/home/manoj/.gradle/caches/transforms-3/e5d6bd94a6191e02cc768b64aef8c658/transformed/jetified-listenablefuture-1.0.jar'
+INFO: D8: Stripped invalid locals information from 2 methods.
+INFO: /home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar: D8: Methods with invalid locals information:
+  java.lang.Object kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$10.collect(kotlinx.coroutines.flow.FlowCollector, kotlin.coroutines.Continuation)
+  Attempt to define local of type long as element$iv:java.lang.Object
+INFO: /home/manoj/.gradle/caches/transforms-3/69804a3a0fa9bdc80348de6eeed8b98c/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar: D8: Methods with invalid locals information:
+  java.lang.Object kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$9.collect(kotlinx.coroutines.flow.FlowCollector, kotlin.coroutines.Continuation)
+  Attempt to define local of type int as element$iv:java.lang.Object
+INFO: D8: Some warnings are typically a sign of using an outdated Java toolchain. To fix, recompile the source with an updated toolchain.
+Caching disabled for task ':app:mergeExtDexDebug' because:
+  Build cache is disabled
+Task ':app:mergeExtDexDebug' is not up-to-date because:
+  Class path of task ':app:mergeExtDexDebug' has changed from 381eb3bc9ef16919c1eb85e0087675e0 to 6ee5230caa69d03fde913b7968708665.
+The input changes require a full rebuild for incremental task ':app:mergeExtDexDebug'.
+Merging to '/home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/dex/debug/mergeExtDexDebug' with D8 from all or a subset of dex files in /home/manoj/.gradle/caches/transforms-3/e9adfc8bd4ba3f145101fa482decb070/transformed/material-1.11.0-runtime, /home/manoj/.gradle/caches/transforms-3/2b7e584c667b6dab666c13b44c5ff983/transformed/constraintlayout-2.1.4-runtime, /home/manoj/.gradle/caches/transforms-3/94d2c9c889118aaa6c756964a50e3fcd/transformed/jetified-appcompat-resources-1.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/551735e419483693a9b3fb75fc590228/transformed/appcompat-1.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/68fbad3c4a89c5cd3fa908e3d7236ee6/transformed/gridlayout-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/cf0fda9f9239cca4b01911ba24bf0624/transformed/jetified-emoji2-views-helper-1.2.0-runtime, /home/manoj/.gradle/caches/transforms-3/d7ebc7eaba9bc62c60d431b80784344a/transformed/jetified-emoji2-1.2.0-runtime, /home/manoj/.gradle/caches/transforms-3/b00565385ff1e174dbfb658b65431cfb/transformed/jetified-viewpager2-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/b5b6985a458cde457641035a3a16b01c/transformed/fragment-1.3.6-runtime, /home/manoj/.gradle/caches/transforms-3/8698505ad3a5fe0d42534d8fdcfdfb7a/transformed/jetified-activity-1.8.0-runtime, /home/manoj/.gradle/caches/transforms-3/8a55e0eac1def30b161fd30effa7d829/transformed/legacy-support-core-ui-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/43170edf80a9596847f5fe550cb88039/transformed/drawerlayout-1.1.1-runtime, /home/manoj/.gradle/caches/transforms-3/12d45e88e3e108bd3da66dfb2d45dbfd/transformed/coordinatorlayout-1.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/f8133cc2c29ea56cd1dd8bebe57974d7/transformed/dynamicanimation-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/9c8a904895027a20bd06f08c59059a31/transformed/transition-1.2.0-runtime, /home/manoj/.gradle/caches/transforms-3/62ee03c52517f3d3a8ee8246db884b5e/transformed/vectordrawable-animated-1.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/0937302e67ef3aec62043ffd8ca990a2/transformed/vectordrawable-1.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/e677a95e550e96196902b731359eba61/transformed/viewpager-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/8de8e26198114fb378501180de804a17/transformed/legacy-support-core-utils-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/ae37484dd49ad50d0daf2e37262bc8e6/transformed/loader-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/04dcae09f07bf86b95eb1367fa75c5ef/transformed/recyclerview-1.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/31eba40d905acb9767bb07ee90c168c5/transformed/slidingpanelayout-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/99463fdd454aa667e3c6e530a33f661e/transformed/customview-1.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/cd6a3d5a99d2633f7cc26c903120fb8c/transformed/swiperefreshlayout-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/6b5bdef2d746cc232ea385bbd398c571/transformed/asynclayoutinflater-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/df78abbb2e03b92a08835fd964de06f8/transformed/core-1.12.0-runtime, /home/manoj/.gradle/caches/transforms-3/6b674c6907c29cac4195e2c8209657ed/transformed/jetified-savedstate-1.2.1-runtime, /home/manoj/.gradle/caches/transforms-3/6f61163e180d8f93faf8e2e3334774a8/transformed/jetified-lifecycle-process-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/0ca6bd9a2ae318fe2650ba7493162ac4/transformed/lifecycle-livedata-core-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/2ce45b521b0d811244fe2ec662a00e09/transformed/lifecycle-livedata-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/1c521c80cf8d704853894c8f111c0b47/transformed/lifecycle-common-2.6.1, /home/manoj/.gradle/caches/transforms-3/dae95387a48f442ebf12de7edf1b64e0/transformed/lifecycle-viewmodel-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/082e4804a8f374542b01d814abe34b00/transformed/lifecycle-runtime-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/a6ced50c6b99c013c47d784b76881554/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1-runtime, /home/manoj/.gradle/caches/transforms-3/4235f5fe829826686cce2ce6f0d43840/transformed/jetified-core-ktx-1.12.0-runtime, /home/manoj/.gradle/caches/transforms-3/8cded9bb0454bb0cfdb4c8ef4437a64a/transformed/jetified-annotation-experimental-1.3.0-runtime, /home/manoj/.gradle/caches/transforms-3/eb3511c0978159632baf922d83b47e01/transformed/jetified-MPAndroidChart-v3.1.0-runtime, /home/manoj/.gradle/caches/transforms-3/6d0bbfe759e5586dc395137370584b06/transformed/cursoradapter-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/1c183adab2cf996b939de2a9002561ec/transformed/jetified-resourceinspection-annotation-1.0.1, /home/manoj/.gradle/caches/transforms-3/2cd59b9893f817414dac73e93e9a6c2b/transformed/cardview-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/d2171cabd42b9831e2e1a3046639acf3/transformed/versionedparcelable-1.1.1-runtime, /home/manoj/.gradle/caches/transforms-3/113d6552b114e32e52b987a87cc1235b/transformed/collection-1.1.0, /home/manoj/.gradle/caches/transforms-3/42412df6fa007106ae6ee941ebbae247/transformed/jetified-profileinstaller-1.3.0-runtime, /home/manoj/.gradle/caches/transforms-3/8a2e583beaf649e47202088f8db07093/transformed/jetified-startup-runtime-1.1.1-runtime, /home/manoj/.gradle/caches/transforms-3/94465126dbb7226c0eafc7b4ab64be13/transformed/jetified-tracing-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/94b1e65e6ef47eac06d8253e8fcf8354/transformed/interpolator-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/bac5c168b2e9a9ffff56c3e9ce800711/transformed/core-runtime-2.2.0-runtime, /home/manoj/.gradle/caches/transforms-3/11c3565471c02681d920263f0ecefa5b/transformed/core-common-2.2.0, /home/manoj/.gradle/caches/transforms-3/e87d8382f6be8726445679ab112b1741/transformed/jetified-concurrent-futures-1.1.0, /home/manoj/.gradle/caches/transforms-3/f51ba7a2dc7c935a3cbe783d6693f66a/transformed/documentfile-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/8d3e73c42b84c21741b1fab6fb9896dd/transformed/localbroadcastmanager-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/d9a448a3473d00cfe486dcf0f2d23efe/transformed/print-1.0.0-runtime, /home/manoj/.gradle/caches/transforms-3/86c54e222d5b380d1393a57dc539a3f7/transformed/jetified-annotation-jvm-1.6.0, /home/manoj/.gradle/caches/transforms-3/eda2984a8e46f67dc88205d2061a9fff/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4, /home/manoj/.gradle/caches/transforms-3/1908cca98a31fcc3a32db7ea0eee7ce6/transformed/jetified-kotlinx-coroutines-android-1.6.4, /home/manoj/.gradle/caches/transforms-3/75fd2eef7a8f51357e91556447052878/transformed/jetified-kotlin-stdlib-1.9.0, /home/manoj/.gradle/caches/transforms-3/392698b9e959504ab7cfdef7cdd36f93/transformed/jetified-error_prone_annotations-2.15.0, /home/manoj/.gradle/caches/transforms-3/aee8ca4067f89bed8b52f88365a0066e/transformed/jetified-constraintlayout-core-1.0.4, /home/manoj/.gradle/caches/transforms-3/b4ec63de04415805055981f64bf1c1b4/transformed/jetified-annotations-13.0, /home/manoj/.gradle/caches/transforms-3/19af67bfd2c4f30cc40b5fa48b8fe4c9/transformed/jetified-listenablefuture-1.0, /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/intermediates/external_file_lib_dex_archives/debug/0_jetified-chaquopy_java-15.0.1.jar, and from all global synthetics files in 
+
+AAPT2 aapt2-8.2.1-10154469-linux Daemon #0: shutdown
+AAPT2 aapt2-8.2.1-10154469-linux Daemon #1: shutdown
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:149)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:147)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:283)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:321)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:304)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:309)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:77)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:38)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:94)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:49)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:22)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:144)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:76)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:170)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:187)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:120)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:162)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:249)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:109)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:114)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:157)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:126)
+	... 2 more
+
+
+BUILD FAILED in 5m 26s
+37 actionable tasks: 37 executed
+Gradle was unable to watch the file system for changes. Unable to watch same file twice via different paths: Already watching path: /home/manoj/Desktop/GUTANGLE_Project/GutAngle_Project/android_app/app/build/python/env/debug/lib64/python3.13/site-packages/wheel.
