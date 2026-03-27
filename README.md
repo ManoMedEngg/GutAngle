@@ -10,13 +10,12 @@
 
 ## 📁 Project Structure
 
-This repository is organized into two primary components:
+This repository is organized into a unified, standalone structure for easy deployment:
 
-### 1. [website/](file:///home/manoj/Desktop/BME_App/website/)
-A premium "Cyber-Medical" landing page and dashboard.
-- **Landing Page**: Features a sleek dark-theme interface with real-time video backgrounds.
-- **Mobile App Download**: A unified flow that captures user biometrics (Name, Email, Phone, Age, Address) before redirecting to the official APK download on Google Drive.
-- **Interactive Dashboard**: (Located in `website/application/`) A sophisticated interface for real-time EEG and lumbar posture monitoring.
+### 1. Root Directory (Website & Platform)
+- **index.html**: The standalone landing page (moved from `website/`).
+- **css/**, **js/**, **img/**, **vdo/**: Core assets for the landing page.
+- **application/**: The sophisticated dashboard interface for real-time monitoring.
 
 ### 2. [GutAngle_Project/](file:///home/manoj/Desktop/BME_App/GutAngle_Project/)
 The architectural core of the research project.
