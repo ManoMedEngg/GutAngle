@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0a0a0a</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#00d4ff</color>
+    
+    <!-- GutAngle Premium Palette -->
+    <color name="bg_dark">#0a0a0a</color>
+    <color name="accent_cyan">#00d4ff</color>
+    <color name="accent_green">#00ff9d</color>
+    <color name="glass_white">#26ffffff</color>
+    <color name="glass_border">#40ffffff</color>
+    <color name="text_bright">#f0f0f0</color>
+    <color name="text_dim">#b0b0b0</color>
+    <color name="alert_red">#ff4b5c</color>
+</resources>

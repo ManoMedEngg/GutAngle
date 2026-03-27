@@ -1,0 +1,6 @@
+flask
+werkzeug
+authlib
+pyserial
+pywebview
+pyinstaller

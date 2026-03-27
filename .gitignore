@@ -1,0 +1,30 @@
+# Large Files (Exceeding GitHub's 100MB limit)
+website/apk/GutAngle_Monitor.apk
+GutAngle_Project/Dataset/Spainal_dataset/gutANGLE - Mano_Spinal_Cord_Data.csv
+GutAngle_Project/Dataset/Spainal_dataset/gutANGLE.xlsx
+
+# Artifacts
+.gemini/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Android
+.gradle/
+build/
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+
+# OS
+.DS_Store
+Thumbs.db

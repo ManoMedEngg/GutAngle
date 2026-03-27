@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GUTANGLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .nexus-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: calc(var(--safe-top) + 10px) 15px calc(var(--safe-bottom) + 80px) 15px;
+            background: radial-gradient(circle at 50% 10%, rgba(0, 242, 255, 0.05) 0%, transparent 50%);
+            gap: 15px;
+        }
+
+        /* Android-Style Header */
+        .nexus-header {
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(0,0,0,0.4); border-bottom: 1px solid var(--border-glass);
+            padding: 12px 15px; border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-brand {
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .header-icon {
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 1px solid var(--accent-cyan);
+        }
+
+        .header-title-group h2 {
+            margin: 0; font-size: var(--font-sm); font-weight: 800;
+            color: white; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Tile System */
+        .tile-card {
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 18px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-tile {
+            min-height: 200px;
+            display: flex; flex-direction: column;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .metric-tile {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-val {
+            font-size: var(--font-lg); font-weight: 800; color: white;
+            margin: 5px 0;
+        }
+
+        .metric-lbl {
+            font-size: var(--font-xs); text-transform: uppercase;
+            color: var(--text-secondary); letter-spacing: 1px;
+        }
+
+        /* Bottom Navigation (Android Native) */
+        .bottom-nav {
+            position: fixed;
+            bottom: var(--safe-bottom);
+            left: 0; right: 0;
+            height: 65px;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            padding-bottom: 5px;
+        }
+
+        .nav-link {
+            display: flex; flex-direction: column; align-items: center;
+            color: var(--text-secondary); text-decoration: none;
+            gap: 4px; transition: all 0.3s;
+            width: 25%;
+        }
+
+        .nav-link i { font-size: 1.2rem; }
+        .nav-link span { font-size: 0.65rem; text-transform: uppercase; font-weight: 600; }
+
+        .nav-link.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        /* Posture Mini-Tile */
+        .posture-tile {
+            display: flex; align-items: center; gap: 20px;
+        }
+
+        .mini-spine {
+            width: 60px; height: 100px;
+        }
+
+        /* Event Feed Tile */
+        .event-feed {
+            max-height: 250px;
+            overflow-y: auto;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+
+        .event-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px; border-radius: 8px; font-size: 0.75rem;
+            border-left: 3px solid var(--accent-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="nexus-container">
+        <!-- New Android-Style Header -->
+        <header class="nexus-header glass-panel">
+            <div class="header-brand">
+                <img src="{{ url_for('static', filename='img/icon.png') }}" alt="G" class="header-icon">
+                <h2>GUTANGLE</h2>
+            </div>
+            
+            <div class="bt-badge">
+                <i class="fab fa-bluetooth-b" id="bt-icon"></i>
+                <span id="bt-text" class="metric-lbl" style="font-size: 0.6rem;">SCANNING</span>
+            </div>
+
+            <button class="premium-btn" id="start-session-btn" style="font-size: 0.65rem; padding: 6px 10px;">SYNC</button>
+        </header>
+
+        <!-- EGG Signal Tile -->
+        <div class="tile-card chart-tile hud-border">
+            <div class="scan-line"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 class="glow-text" style="margin: 0; font-size: 0.9rem; color: var(--accent-cyan);"><i class="fas fa-wave-square"></i> EGG WAVEFORM</h3>
+                <div class="metric-lbl" style="font-size: 0.6rem;">±0.8μV</div>
+            </div>
+            <div style="flex: 1; width: 100%;">
+                <canvas id="eeg-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Biometric Metric Tiles -->
+        <div class="metric-grid">
+            <div class="metric-tile tile-card hud-border">
+                <div class="metric-lbl">Stomach</div>
+                <div class="metric-val" id="egg-rms-val" style="color: var(--accent-cyan);">0.00</div>
+                <div class="metric-lbl">μV</div>
+            </div>
+            <div class="metric-tile tile-card hud-border">
+                <div class="metric-lbl">Flex</div>
+                <div class="metric-val" id="lumbar-angle-val" style="color: var(--accent-crimson);">00.0</div>
+                <div class="metric-lbl">DEG</div>
+            </div>
+            <div class="metric-tile tile-card hud-border">
+                <div class="metric-lbl">Resp</div>
+                <div class="metric-val" id="resp-val">00</div>
+                <div class="metric-lbl">BPM</div>
+            </div>
+            <div class="metric-tile tile-card hud-border">
+                <div class="metric-lbl">Alerts</div>
+                <div class="metric-val" id="alert-val">0</div>
+                <div class="metric-lbl">EVT</div>
+            </div>
+        </div>
+
+        <!-- Posture Mini-Tile -->
+        <div class="tile-card posture-tile hud-border">
+            <div class="mini-spine">
+                <svg viewBox="0 0 100 200" style="height: 100%; width: 100%;">
+                    <path id="spine-svg-path" d="M50,180 Q50,90 50,20" stroke="var(--accent-crimson)" stroke-width="12" fill="none" stroke-linecap="round" />
+                    <circle cx="50" cy="180" r="10" fill="var(--bg-dark)" stroke="var(--accent-crimson)" stroke-width="2" />
+                </svg>
+            </div>
+            <div style="flex: 1;">
+                <h3 class="metric-lbl" style="margin: 0 0 5px 0;">Posture Alignment</h3>
+                <div id="tilt-status" style="font-size: 1.1rem; font-weight: 800; color: #00FF00;">NOMINAL</div>
+                <div class="metric-lbl" style="font-size: 0.6rem; margin-top: 5px;">VECTOR_SYNC_ACTIVE</div>
+            </div>
+        </div>
+
+        <!-- Event Feed Tile (The "Session Logs") -->
+        <div class="tile-card hud-border">
+            <h3 class="metric-lbl" style="margin-bottom: 12px;"><i class="fas fa-list-ul"></i> Session Logs</h3>
+            <div id="event-feed" class="event-feed">
+                <div class="event-item" style="text-align: center; border: none; opacity: 0.5;">Awaiting telemetry...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Android Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-link active">
+            <i class="fas fa-home"></i>
+            <span>Dash</span>
+        </a>
+        <a href="{{ url_for('history') }}" class="nav-link">
+            <i class="fas fa-history"></i>
+            <span>Logs</span>
+        </a>
+        <a href="{{ url_for('settings') }}" class="nav-link">
+            <i class="fas fa-cog"></i>
+            <span>Config</span>
+        </a>
+        <a href="{{ url_for('logout') }}" class="nav-link" style="color: #ff4444;">
+            <i class="fas fa-power-off"></i>
+            <span>Exit</span>
+        </a>
+    </nav>
+
+    <script src="{{ url_for('static', filename='js/bridge.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initNexus === 'function') initNexus();
+        });
+    </script>
+</body>
+</html>

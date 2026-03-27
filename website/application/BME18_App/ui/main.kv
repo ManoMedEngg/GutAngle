@@ -1,0 +1,121 @@
+GutAngleManager:
+    ConnectScreen:
+    DashboardScreen:
+    SessionScreen:
+
+<ConnectScreen>:
+    name: "connect"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 16
+        spacing: 10
+        Label:
+            text: "GutAngle - Connect"
+            font_size: "22sp"
+        Label:
+            text: root.status_text
+        Label:
+            text: "Link: " + root.connection_indicator
+        Label:
+            text: root.session_status_text
+        Label:
+            text: "Received: " + str(root.rx_count)
+        Label:
+            text: "Invalid: " + str(root.invalid_count)
+        Label:
+            text: "Valid ratio: " + ("0.0%" if (root.rx_count + root.invalid_count) == 0 else ("%.1f%%" % ((root.rx_count * 100.0) / (root.rx_count + root.invalid_count))))
+        BoxLayout:
+            size_hint_y: None
+            height: "44dp"
+            spacing: 10
+            Button:
+                text: "Connect"
+                on_release: app.connect_device("00:11:22:33:44:55", 1)
+            Button:
+                text: "Disconnect"
+                on_release: app.disconnect_device()
+        BoxLayout:
+            size_hint_y: None
+            height: "44dp"
+            spacing: 10
+            Button:
+                text: "Start Session"
+                on_release: app.start_session()
+            Button:
+                text: "Dashboard"
+                on_release: app.root.current = "dashboard"
+        BoxLayout:
+            size_hint_y: None
+            height: "44dp"
+            spacing: 10
+            Button:
+                text: "Session Summary"
+                on_release: app.root.current = "session"
+
+<DashboardScreen>:
+    name: "dashboard"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 16
+        spacing: 10
+        Label:
+            text: "Live Dashboard"
+            font_size: "22sp"
+        Label:
+            text: "Posture Score: %.2f" % root.posture_score
+        Label:
+            text: "Tilt (deg): %.2f" % root.posture_tilt_deg
+        Label:
+            text: "EGG RMS: %.2f" % root.egg_rms
+        Label:
+            text: "EGG Mean(uV): %.2f" % root.egg_mean_uv
+        Label:
+            text: "Rolling Pearson: %.3f" % root.corr_value
+        Label:
+            text: "Alert Level: " + root.alert_level
+        Label:
+            text: root.alert_text
+        Label:
+            text: "Alert Count: " + str(root.alert_count)
+        BoxLayout:
+            size_hint_y: None
+            height: "44dp"
+            spacing: 10
+            Button:
+                text: "Session Summary"
+                on_release: app.stop_session(); app.root.current = "session"
+            Button:
+                text: "Back"
+                on_release: app.root.current = "connect"
+
+<SessionScreen>:
+    name: "session"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 16
+        spacing: 10
+        Label:
+            text: "Session Summary"
+            font_size: "22sp"
+        Label:
+            text: "State: " + root.active_text
+        Label:
+            text: "Live Samples: " + str(root.sample_count)
+        Label:
+            text: "Live Duration(s): %.2f" % root.duration_s
+        Label:
+            text: "Latest Pearson: " + root.pearson_text
+        Label:
+            text: root.summary_text
+        Label:
+            text: "Last Export: " + root.export_text
+        BoxLayout:
+            size_hint_y: None
+            height: "44dp"
+            spacing: 10
+            Button:
+                text: "Export CSV"
+                on_release: app.export_session()
+            Button:
+                text: "Connect Screen"
+                on_release: app.root.current = "connect"

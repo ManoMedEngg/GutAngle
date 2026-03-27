@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GutAngle | Main HUD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .hud-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr auto auto;
+            height: 100vh;
+            padding: calc(var(--safe-top) + 15px) 15px calc(var(--safe-bottom) + 15px) 15px;
+            gap: 20px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .biometric-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .bio-ring {
+            width: min(65vw, 260px);
+            height: min(65vw, 260px);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 242, 255, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 75%);
+            transition: all 0.5s ease;
+        }
+
+        .bio-ring::before {
+            content: '';
+            position: absolute;
+            width: 115%;
+            height: 115%;
+            border-radius: 50%;
+            border: 1px dashed rgba(0, 242, 255, 0.2);
+            animation: rotate 25s linear infinite;
+        }
+
+        .bio-value {
+            text-align: center;
+        }
+
+        .bio-value h1 {
+            font-size: var(--font-xl);
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 25px rgba(0, 242, 255, 0.6);
+        }
+
+        .bio-value span {
+            font-size: var(--font-xs);
+            letter-spacing: 4px;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .wave-strip {
+            height: 100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(0, 242, 255, 0.15);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.15);
+            position: relative;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mini-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .mini-card label {
+            font-size: var(--font-xs);
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .mini-card .val {
+            font-size: var(--font-md);
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile touch optimization */
+        .glass-panel {
+            padding: 16px !important;
+            font-size: var(--font-sm) !important;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="medical-theme">
+    <div class="scan-line"></div>
+    
+    <div class="hud-grid">
+        <!-- Header -->
+        <header style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="hud-header">SYSTEM_STATUS: <span style="color: #00FF00;">ACTIVE</span></div>
+            <div id="bt-status" class="status-badge" style="font-size: 0.7rem;">LINK: <span id="bt-name">SEARCHING</span></div>
+        </header>
+
+        <!-- Center Bio -->
+        <div class="biometric-center">
+            <div class="bio-ring">
+                <div class="bio-value">
+                    <span>LUMBAR_ANGLE</span>
+                    <h1 id="bend-val">00.0</h1>
+                    <span id="tilt-status">OPTIMAL</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; width: 100%;">
+                <div class="stats-row">
+                    <div class="mini-card">
+                        <label>EGG_INTENSITY</label>
+                        <div class="val" id="egg-val">0.00 <small>mV</small></div>
+                    </div>
+                    <div class="mini-card">
+                        <label>RESP_CYCLES</label>
+                        <div class="val" id="resp-val">00 <small>rpm</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Waveform -->
+        <div class="wave-strip">
+            <canvas id="live-wave"></canvas>
+            <div style="position: absolute; top: 10px; left: 10px; font-size: 0.6rem; opacity: 0.4;">SYNC_BUFFER_STREAM</div>
+        </div>
+
+        <!-- Footer Actions -->
+        <footer style="display: flex; gap: 10px;">
+            <button class="glass-panel" style="flex: 1; padding: 12px; font-size: 0.7rem; border-color: rgba(0, 242, 255, 0.3);" onclick="window.location.href='/dashboard'">DEEP_ANALYTICS</button>
+            <button class="glass-panel" style="flex: 1; padding: 12px; font-size: 0.7rem;" onclick="window.location.href='/settings'">CONFIG</button>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bridge.js') }}"></script>
+    <script>
+        let waveChart = null;
+        let maxPoints = 100;
+
+        function initHUD() {
+            const ctx = document.getElementById('live-wave');
+            waveChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array(maxPoints).fill(''),
+                    datasets: [{
+                        data: Array(maxPoints).fill(0),
+                        borderColor: '#00F2FF',
+                        borderWidth: 1,
+                        pointRadius: 0,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(0, 242, 255, 0.02)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    scales: {
+                        x: { display: false },
+                        y: { 
+                            display: true, 
+                            min: -0.5, 
+                            max: 0.8,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { 
+                                color: 'rgba(0, 242, 255, 0.5)', 
+                                font: { size: 9, family: 'monospace' },
+                                callback: function(value) { return value.toFixed(1); }
+                            }
+                        }
+                    },
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    }
+                }
+            });
+        }
+
+        // Bridge callback
+        window.updateDashboardUI = function(data) {
+            if (!waveChart) return;
+            
+            // Update Center
+            document.getElementById('bend-val').textContent = data.flex.toFixed(1);
+            document.getElementById('egg-val').innerHTML = `${Math.abs(data.stomach).toFixed(2)} <small>μV</small>`;
+            document.getElementById('resp-val').innerHTML = `${Math.abs(data.bpm).toFixed(0)} <small>bpm</small>`;
+            
+            // Update Wave
+            waveChart.data.datasets[0].data.push(data.stomach);
+            waveChart.data.datasets[0].data.shift();
+            waveChart.update('none');
+
+            // Status Logic
+            const status = document.getElementById('tilt-status');
+            if (data.flex > 30) {
+                status.textContent = 'CRITICAL_TILT';
+                status.style.color = '#FF003C';
+            } else {
+                status.textContent = 'OPTIMAL';
+                status.style.color = '#00FF00';
+            }
+        };
+
+        window.onBluetoothStatus = function(status) {
+            document.getElementById('bt-name').textContent = status.toUpperCase();
+        };
+
+        document.addEventListener('DOMContentLoaded', initHUD);
+    </script>
+</body>
+</html>
+

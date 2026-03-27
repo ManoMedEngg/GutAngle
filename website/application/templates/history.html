@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - GUTANGLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div id="view-dashboard">
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-profile">
+                        <div class="avatar">
+                            <img src="{{ url_for('static', filename='img/icon.png') }}" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <h4>{{ session.get('user_name', 'User') }}</h4>
+                            <span class="user-role">Clinician</span>
+                        </div>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="nav-item"><a href="{{ url_for('dashboard') }}"><i
+                                    class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                        <li class="nav-item active"><a href="{{ url_for('history') }}"><i
+                                    class="fas fa-history"></i><span>History</span></a></li>
+                        <li class="nav-item"><a href="{{ url_for('settings') }}"><i
+                                    class="fas fa-cog"></i><span>Settings</span></a></li>
+                    </ul>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="logout-btn" onclick="window.location.href=`{{ url_for('logout') }}`; ">
+                        <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="top-bar">
+                    <div class="top-left">
+                        <h3>Session History</h3>
+                    </div>
+                </header>
+                <div class="dashboard-content">
+                    <div class="page-header">
+                        <h2><i class="fas fa-history"></i> Session History</h2>
+                    </div>
+                    <div class="history-container">
+                        <div class="sessions-table-container">
+                            <table class="sessions-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Session ID</th>
+                                        <th>Duration</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sessions-table-body">
+                                    <tr>
+                                        <td colspan="5"
+                                            style="text-align: center; padding: 40px; color: var(--text-muted);">
+                                            Loading sessions...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        // Load sessions via API
+        fetch('/api/sessions')
+            .then(response => response.json())
+            .then(sessions => {
+                const tbody = document.getElementById('sessions-table-body');
+                if (sessions.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--text-muted);">No sessions found</td></tr>';
+                } else {
+                    tbody.innerHTML = sessions.map(session => `
+                        <tr>
+                            <td>${new Date(session.start_time).toLocaleString()}</td>
+                            <td>${session.session_id}</td>
+                            <td>${session.end_time ? calculateDuration(session.start_time, session.end_time) : 'Active'}</td>
+                            <td><span class="status-badge ${session.status}">${session.status}</span></td>
+                            <td><button class="btn-sm">View</button></td>
+                        </tr>
+                    `).join('');
+                }
+            })
+            .catch(error => {
+                console.error('Error loading sessions:', error);
+                document.getElementById('sessions-table-body').innerHTML =
+                    '<tr><td colspan="5" style="text-align: center; padding: 40px; color: #ef4444;">Error loading sessions</td></tr>';
+            });
+
+        function calculateDuration(start, end) {
+            const diff = new Date(end) - new Date(start);
+            const hours = Math.floor(diff / 3600000);
+            const minutes = Math.floor((diff % 3600000) / 60000);
+            return `${hours}h ${minutes}m`;
+        }
+    </script>
+</body>
+
+</html>
